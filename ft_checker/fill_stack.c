@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 18:48:25 by youness           #+#    #+#             */
-/*   Updated: 2021/03/25 19:10:42 by youness          ###   ########.fr       */
+/*   Updated: 2021/03/25 20:34:44 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,13 @@ void		fill_stack(t_stack *stack, int start, int argc, char **argv)
 	int	num;
 	int	error;
 
-	while (start < argc)
+	while (--argc >= start)
 	{
-		num = ft_atoi_check(argv[start], &error);
+		num = ft_atoi_check(argv[argc], &error);
 		if (error)
 			manage_error(stack, error);
 		if (check_duplicate(stack, num))
 			manage_error(stack, EDUP);
-		ft_push(num);
-		start++;
+		ft_push(stack, num);
 	}
 }

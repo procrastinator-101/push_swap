@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 18:42:06 by youness           #+#    #+#             */
-/*   Updated: 2021/03/25 19:36:35 by youness          ###   ########.fr       */
+/*   Updated: 2021/03/25 21:17:24 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,12 @@ int	main(int argc, char **argv)
 	fd = 0;
 	construct_stack(&a);
 	construct_stack(&b);
-	fill_stack(&a);
+	fill_stack(&a, 1, argc, argv);
+	ft_verbose(&a, &b);
 	parser(fd, &a, &b);
+	if (ft_is_stack_sorted(&a, ASCENDANT) && !b.size)
+		printf("Ok\n");
+	else
+		printf("Ko\n");
 	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 17:44:33 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/14 12:07:42 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/03/25 20:12:44 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/get_next_line.h"
+#include "get_next_line.h"
 
 int		get_next_line(int fd, char **line)
 {

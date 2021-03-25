@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 00:56:05 by youness           #+#    #+#             */
-/*   Updated: 2021/03/20 00:56:12 by youness          ###   ########.fr       */
+/*   Updated: 2021/03/25 21:27:51 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_is_stack_sorted(t_stack *stack, int order)
 	int	i;
 
 	i = -1;
-	if (order == ASCENDANT)
+	if (order == DESCENDANT)
 	{
 		while (++i < stack->size - 1)
 		{
