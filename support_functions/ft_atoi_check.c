@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 20:52:22 by youness           #+#    #+#             */
-/*   Updated: 2021/03/22 21:28:28 by youness          ###   ########.fr       */
+/*   Updated: 2021/03/25 19:45:49 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	ft_atoi_check(char *str, int *error)
 		num = num * 10 + (str[i++] - 48);
 	ret = num;
 	if (num > -(long)INT_MIN || (num == -(long)INT_MIN && str[sp] != '-'))
-		*error = SIZE_OVERFLOW;
+		*error = EIOF;
 	else if (str[i])
-		*error = NOT_AN_INTEGER;
+		*error = ENAI;
 	return (str[sp] == '-' ? -ret : ret);
 }
