@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_shared_functions.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 16:11:39 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/04/06 18:14:54 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/04/06 17:46:40 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/04/06 18:03:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef FT_SHARED_FUNCTIONS_H
+# define FT_SHARED_FUNCTIONS_H
 
-# include "../ft_shared_functions/ft_shared_functions.h"
+# include "errors.h"
+# include "../libft/libft.h"
+# include "../stack/stack.h"
+# include "../support_functions/support_functions.h"
 
-int		ft_binsearch_index(int *arr, int size, int val);
-void	ft_insert_in_stack(t_stack *stack, char *stack_name, int value);
-void	ft_sort_stack(t_stack *a, t_stack *b);
+int		execute_intruction(char *instruction, t_stack *a, t_stack *b);
+
+void	ft_verbose(t_stack *a, t_stack *b, char *instruction);
+void	fill_stack(t_stack *stack, int start, int argc, char **argv);
 
 #endif

@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 18:42:06 by youness           #+#    #+#             */
-/*   Updated: 2021/04/06 18:04:24 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/03/25 19:06:10 by youness           #+#    #+#             */
+/*   Updated: 2021/04/06 18:10:44 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#ifndef ERRORS_H
+# define ERRORS_H
 
-int	main(int argc, char **argv)
-{
-	int		fd;
-	t_stack	a;
-	t_stack	b;
+# include "../stack/stack.h"
+# include "../libft/libft.h"
 
-	if (argc < 2)
-		return (0);
-	fd = 0;
-	construct_stack(&a);
-	construct_stack(&b);
-	fill_stack(&a, 1, argc, argv);
-	ft_verbose(&a, &b, 0);
-	parser(fd, &a, &b);
-	if (ft_is_stack_sorted(&a, ASCENDANT) && !b.size)
-		printf("Ok\n");
-	else
-		printf("Ko\n");
-	return (0);
-}
+# define EDUP	-1
+# define EIOF	-2
+# define EII	-3
+# define ENAI	-4
+
+void	manage_error(t_stack *stack, int error);
+
+#endif

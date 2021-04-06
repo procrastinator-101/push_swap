@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_sort_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 16:11:39 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/04/06 18:14:54 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/04/06 17:26:30 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/04/06 18:15:17 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+# include "push_swap.h"
 
-# include "../ft_shared_functions/ft_shared_functions.h"
-
-int		ft_binsearch_index(int *arr, int size, int val);
-void	ft_insert_in_stack(t_stack *stack, char *stack_name, int value);
-void	ft_sort_stack(t_stack *a, t_stack *b);
-
-#endif
+void	ft_sort_stack(t_stack *a, t_stack *b)
+{
+	while (a->size > 0)
+	{
+		if (a->content[a->size - 1] < a->content[a->size - 2])
+			execute_intruction(a, b, "sa");
+		while (size > 0 && a->content[a->size - 1] < a->content[0])
+			execute_intruction(a, b, "rra");
+		ft_insert_in_stack(b, "b", ft_pop(a));
+	}
+	while (b->size > 0)
+		execute_intruction(a, b, "pa");
+}

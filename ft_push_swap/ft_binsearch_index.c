@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.h                                           :+:      :+:    :+:   */
+/*   ft_binsearch_index.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 19:06:10 by youness           #+#    #+#             */
-/*   Updated: 2021/03/25 20:12:08 by youness          ###   ########.fr       */
+/*   Created: 2021/04/06 16:38:30 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/04/06 17:40:25 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef ERRORS_H
-# define ERRORS_H
+/*
+**
+** make it with binary search
+**
+*/
 
-# include "../stack/stack.h"
-# include "../libft/libft.h"
+int	ft_binsearch_index(int *arr, int size, int val)
+{
+	int	i;
 
-# define EDUP	-1
-# define EIOF	-2
-# define EII	-3
-# define ENAI	-4
-
-void	manage_error(t_stack *stack, int error);
-
-#endif
+	if (size < 1)
+		return (-1);
+	i = 0;
+	while (i < size && arr[i] < val)
+		i++;
+	return (i);
+}

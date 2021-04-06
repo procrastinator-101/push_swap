@@ -6,18 +6,22 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 20:43:45 by youness           #+#    #+#             */
-/*   Updated: 2021/03/25 21:18:18 by youness          ###   ########.fr       */
+/*   Updated: 2021/04/06 18:05:42 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "ft_shared_functions.h"
 
-void	ft_verbose(t_stack *a, t_stack *b)
+void	ft_verbose(t_stack *a, t_stack *b, char *instruction)
 {
 	int	i;
 	int	j;
 
 	printf("------------------------------------------------------------\n");
+	if (instruction)
+		printf("Exec %s:\n", instruction);
+	else
+		printf("Init a and b:\n");
 	i = a->size - 1;
 	j = b->size - 1;
 	while (i >= 0 || j >= 0)

@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:11:35 by youness           #+#    #+#             */
-/*   Updated: 2021/03/25 21:29:21 by youness          ###   ########.fr       */
+/*   Updated: 2021/04/06 18:11:54 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,5 @@ void	parser(int fd, t_stack *a, t_stack *b)
 			ft_destroy_stack(b);
 			manage_error(a, EII);
 		}
-		else
-			ft_verbose(a, b);
 	}
 }

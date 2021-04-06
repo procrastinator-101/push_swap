@@ -6,11 +6,11 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 18:48:25 by youness           #+#    #+#             */
-/*   Updated: 2021/03/25 20:34:44 by youness          ###   ########.fr       */
+/*   Updated: 2021/04/06 18:10:23 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "ft_shared_functions.h"
 
 static int	check_duplicate(t_stack *a, int num)
 {
@@ -24,7 +24,7 @@ static int	check_duplicate(t_stack *a, int num)
 	return (0);
 }
 
-void		fill_stack(t_stack *stack, int start, int argc, char **argv)
+void	fill_stack(t_stack *stack, int start, int argc, char **argv)
 {
 	int	num;
 	int	error;

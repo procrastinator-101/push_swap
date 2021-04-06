@@ -6,11 +6,11 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:22:00 by youness           #+#    #+#             */
-/*   Updated: 2021/03/25 21:23:26 by youness          ###   ########.fr       */
+/*   Updated: 2021/04/06 18:11:19 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "ft_shared_functions.h"
 
 static int	execute_rotations(char *instruction, t_stack *a, t_stack *b)
 {
@@ -34,10 +34,11 @@ static int	execute_rotations(char *instruction, t_stack *a, t_stack *b)
 	}
 	else
 		return (EII);
+	ft_verbose(a, b, instruction);
 	return (0);
 }
 
-int			execute_intruction(char *instruction, t_stack *a, t_stack *b)
+int	execute_intruction(char *instruction, t_stack *a, t_stack *b)
 {
 	if (!ft_strcmp(instruction, "sa"))
 		ft_swap_stack(a);
@@ -60,5 +61,6 @@ int			execute_intruction(char *instruction, t_stack *a, t_stack *b)
 	}
 	else
 		return (execute_rotations(instruction, a, b));
+	ft_verbose(a, b, instruction);
 	return (0);
 }

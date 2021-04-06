@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 23:39:00 by youness           #+#    #+#             */
-/*   Updated: 2021/03/25 20:11:53 by youness          ###   ########.fr       */
+/*   Updated: 2021/04/06 17:55:27 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define SUPPORT_FUNCTIONS_H
 
 # include <limits.h>
-# include "../ft_checker/errors.h"
 # include "../libft/libft.h"
+# include "../ft_shared_functions/errors.h"
 
 int					ft_issign(char c);
 int					ft_isnumber(char *num);
