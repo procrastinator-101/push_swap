@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:22:00 by youness           #+#    #+#             */
-/*   Updated: 2021/04/06 18:11:19 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/04/06 22:02:58 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static int	execute_rotations(char *instruction, t_stack *a, t_stack *b)
 
 int	execute_intruction(char *instruction, t_stack *a, t_stack *b)
 {
+	count++;
 	if (!ft_strcmp(instruction, "sa"))
 		ft_swap_stack(a);
 	else if (!ft_strcmp(instruction, "sb"))

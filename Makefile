@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/04/06 17:45:58 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/04/06 21:57:26 by youness          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ FT_CHECKER_SRC = $(FT_CHECKER_PATH)/checker.c \
 
 FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_binsearch_index.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_insert_in_stack.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_sort_stack.c \
 				   $(FT_PUSH_SWAP_PATH)/push_swap.c
 
 CHECKER_SRC = $(FT_CHECKER_SRC) $(FT_SHARED_FUNCTIONS_SRC) $(STACK_SRC) \
