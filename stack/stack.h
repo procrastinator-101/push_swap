@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 22:47:28 by youness           #+#    #+#             */
-/*   Updated: 2021/03/20 00:57:34 by youness          ###   ########.fr       */
+/*   Updated: 2021/04/06 12:14:16 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define DESCENDANT			1
 # define MIN_STACK_SIZE		100
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int			*content;
 	int			size;

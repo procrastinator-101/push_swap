@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/03/25 20:52:03 by youness          ###   ########.fr        #
+#    Updated: 2021/04/06 16:33:01 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ NAME = $(CHECKER) $(PUSH_SWAP)
 LIBFT_PATH = libft
 STACK_PATH = stack
 FT_CHECKER_PATH = ft_checker
+FT_PUSH_SWAP_PATH = ft_push_swap
 GET_NEXT_LINE_PATH = get_next_line
 SUPPORT_FUNCTIONS_PATH = support_functions
 
@@ -62,10 +63,13 @@ FT_CHECKER_SRC = $(FT_CHECKER_PATH)/checker.c \
 				 $(FT_CHECKER_PATH)/manage_error.c \
 				 $(FT_CHECKER_PATH)/parser.c
 
+FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_insert_in_stack.c \
+				   $(FT_PUSH_SWAP_PATH)/push_swap.c
+
 CHECKER_SRC = $(FT_CHECKER_SRC) $(STACK_SRC) $(GET_NEXT_LINE_SRC) \
 			  $(SUPPORT_FUNCTIONS_SRC)
 
-FT_PUSH_SWAP_SRC = 
+FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_SRC) $(STACK_SRC) $(SUPPORT_FUNCTIONS_SRC)
 
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 PUSH_SWAP_OBJ = $(PUSH_SWAP_SRC:.c=.o)
