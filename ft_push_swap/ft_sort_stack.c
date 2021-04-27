@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_sort_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 16:13:19 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/04/15 11:11:06 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/04/15 11:02:35 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/04/24 16:09:27 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+# include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_sort_stack(t_stack *src, t_stack *dst, int template, int size)
 {
-	t_stack	a;
-	t_stack	b;
+	if (size <= 4)
+	{
+		if (template)
+		{
+			if (src->content[src->size - 1] > src->content[src->size - 2])
+			{
 
-	if (argc < 2)
-		return (0);
-	count = 0;
-	construct_stack(&a);
-	construct_stack(&b);
-	fill_stack(&a, 1, argc, argv);
-	ft_verbose(&a, &b, 0);
-	ft_sort_stack(&a, &b);
-	printf("nb_ops = %d\n", count);
+			}
+		}
+	}
 }
