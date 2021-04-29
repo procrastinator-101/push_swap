@@ -53,8 +53,32 @@ rotate
 =============================================================================================
 1 4 3 2
 
+may raise some comflicts
+----------------------
+pop
+swap
+reverse rotate
+push
 ----------------------
 
+----------------------
+rotate
+swap
+reverse rotate
+reverse rotate
+swap
+----------------------
+rotate
+swap
+rotate
+rotate
+swap
+----------------------
+swap
+reverse rotate
+reverse rotate
+swap
+reverse rotate
 ----------------------
 =============================================================================================
 
