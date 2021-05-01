@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 17:46:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/04/06 22:04:30 by youness          ###   ########.fr       */
+/*   Updated: 2021/05/01 10:36:10 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "../stack/stack.h"
 # include "../support_functions/support_functions.h"
 
-int	count;
 
 int		execute_intruction(char *instruction, t_stack *a, t_stack *b);
 

@@ -1,0 +1,25 @@
+
+generate_permutations
+{
+	at_the_end_of_each_permuatation
+	{
+		get_the_solutions
+		append it to the cases solutions
+		return 
+	}
+}
+
+sort_stack
+{
+	if (stack_size < 4)
+		get_the_right_case();
+	median = get_median
+	for (elem in stack)
+	{
+		if (elem > median)
+			pop_to_the_other_stack();
+	}
+	starts.push(start);
+	ends.push(end);
+	sort_stack(a, b, starts, ends);
+}

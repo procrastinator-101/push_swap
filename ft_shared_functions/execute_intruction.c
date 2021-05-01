@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:22:00 by youness           #+#    #+#             */
-/*   Updated: 2021/04/06 22:02:58 by youness          ###   ########.fr       */
+/*   Updated: 2021/05/01 10:35:52 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,12 @@ static int	execute_rotations(char *instruction, t_stack *a, t_stack *b)
 	}
 	else
 		return (EII);
-	ft_verbose(a, b, instruction);
+	//ft_verbose(a, b, instruction);
 	return (0);
 }
 
 int	execute_intruction(char *instruction, t_stack *a, t_stack *b)
 {
-	count++;
 	if (!ft_strcmp(instruction, "sa"))
 		ft_swap_stack(a);
 	else if (!ft_strcmp(instruction, "sb"))
@@ -62,6 +61,6 @@ int	execute_intruction(char *instruction, t_stack *a, t_stack *b)
 	}
 	else
 		return (execute_rotations(instruction, a, b));
-	ft_verbose(a, b, instruction);
+	//ft_verbose(a, b, instruction);
 	return (0);
 }
