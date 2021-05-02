@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_shared_functions.h                              :+:      :+:    :+:   */
+/*   ft_destroy_paths.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 17:46:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 15:55:43 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/05/02 13:20:28 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/05/02 16:23:06 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SHARED_FUNCTIONS_H
-# define FT_SHARED_FUNCTIONS_H
+#include "push_swap.h"
 
-# include "errors.h"
-# include "../libft/libft.h"
-# include "../stack/ft_stack.h"
-# include "../support_functions/support_functions.h"
+void	ft_destroy_paths(t_list **paths)
+{
+	t_list	*path;
+	t_list	*next;
 
-
-int		execute_intruction(char *instruction, t_stack *a, t_stack *b);
-
-void	ft_verbose(t_stack *a, t_stack *b, char *instruction);
-void	fill_stack(t_stack *stack, int start, int argc, char **argv);
-
-#endif
+	if (!(*paths))
+		return ;
+	path = (*paths)->content;
+	while (path)
+	{
+		next = path->next;
+		ft_lstclear(&path, free);
+		path = next;
+	}
+	*paths = 0;
+}

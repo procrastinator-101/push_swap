@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_stack.c                                    :+:      :+:    :+:   */
+/*   ft_add_next_step.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/15 11:02:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 16:40:24 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/05/02 13:22:06 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/05/02 16:19:50 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-void	ft_sort_stack(t_stack *src, t_stack *dst, int template, int size)
+void	ft_add_next_step(t_list **path, int index)
 {
-	if (size <= 4)
+	char	*str;
+	t_list	*node;
+
+	if (index == 1)
+		str = "s";
+	else if (index == 2)
+		str = "r";
+	else
+		str = "rr";
+	node = malloc(sizeof(t_list));
+	str = ft_strdup(str);
+	if (!node || !str)
 	{
-		if (template)
-		{
-			if (src->content[src->size - 1] > src->content[src->size - 2])
-			{
-				dst = src;
-				return ;
-			}
-		}
+		free(str);
+		free(node);
+		ft_lstclear(path, free);
+		*path = 0;
+		return ;
 	}
+	ft_lstadd_back(path, node);
+	node->content = str;
+	node->next = 0;
 }

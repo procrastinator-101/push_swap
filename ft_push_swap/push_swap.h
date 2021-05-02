@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 16:11:39 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/01 17:04:27 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/05/02 16:39:57 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,32 @@
 
 # include "../ft_shared_functions/ft_shared_functions.h"
 
+# define MAX_INSTRUCTIONS	10
+
 typedef struct s_path
 {
-	t_list			*instruction;
-	struct s_path	*next;
-}				t_path;
+	t_list				*instruction;
+	struct s_path		*next;
+}						t_path;
 
-typedef struct	s_solution
+typedef struct s_solution
 {
-	t_list	*paths;
-	t_stack	stack;
-}				t_solution;
+	t_list				*paths;
+	t_stack				*stack;
+	int					nb_instuctions;
+	struct s_solution	*next;
+}						t_solution;
 
-void	ft_sort_stack(t_stack *a, t_stack *b);
+void		ft_destroy_lst_solution(t_solution **solution);
+void		ft_destroy_paths(t_list **paths);
+void		ft_delete_lst_solution(t_solution **solution);
+void		ft_add_next_step(t_list **path, int index);
+void		ft_add_front_lst_solution(t_solution **tail, t_solution *new);
 
-void	ft_get_solutions(t_stack stack, char instructions_set[3][4], \
-        char *instructions, int nb_instuctions, t_solution *solution);
+t_solution	*ft_get_case_solution(t_stack *src);
+t_solution	*ft_get_atomic_solutions(t_stack *src);
+
+int			ft_solve_case(t_solution *solution, t_stack *src, t_list *path, \
+			int nb_instuctions);
 
 #endif

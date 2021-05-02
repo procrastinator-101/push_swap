@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_stack.c                                    :+:      :+:    :+:   */
+/*   ft_destroy_stack.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/15 11:02:35 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 16:40:24 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/03/20 00:28:23 by youness           #+#    #+#             */
+/*   Updated: 2021/05/02 16:43:46 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "ft_stack.h"
 
-void	ft_sort_stack(t_stack *src, t_stack *dst, int template, int size)
+void	ft_destroy_stack(t_stack **stack)
 {
-	if (size <= 4)
-	{
-		if (template)
-		{
-			if (src->content[src->size - 1] > src->content[src->size - 2])
-			{
-				dst = src;
-				return ;
-			}
-		}
-	}
+	if (!(*stack))
+		return ;
+	free((*stack)->content);
+	free(*stack);
+	*stack = 0;
 }

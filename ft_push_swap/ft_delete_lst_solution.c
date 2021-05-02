@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_shared_functions.h                              :+:      :+:    :+:   */
+/*   ft_delete_lst_solution.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 17:46:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 15:55:43 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/05/02 14:07:04 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/05/02 16:21:49 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SHARED_FUNCTIONS_H
-# define FT_SHARED_FUNCTIONS_H
+#include "push_swap.h"
 
-# include "errors.h"
-# include "../libft/libft.h"
-# include "../stack/ft_stack.h"
-# include "../support_functions/support_functions.h"
-
-
-int		execute_intruction(char *instruction, t_stack *a, t_stack *b);
-
-void	ft_verbose(t_stack *a, t_stack *b, char *instruction);
-void	fill_stack(t_stack *stack, int start, int argc, char **argv);
-
-#endif
+void	ft_delete_lst_solution(t_solution **solution)
+{
+	if (!(*solution))
+		return ;
+	ft_destroy_paths(&((*solution)->paths));
+	ft_destroy_stack(&((*solution)->stack));
+	free(*solution);
+	*solution = 0;
+}

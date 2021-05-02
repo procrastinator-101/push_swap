@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_shared_functions.h                              :+:      :+:    :+:   */
+/*   ft_manage_execution_error.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 17:46:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 15:55:43 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/05/02 16:41:51 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/05/02 16:45:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SHARED_FUNCTIONS_H
-# define FT_SHARED_FUNCTIONS_H
+#include "errors.h"
 
-# include "errors.h"
-# include "../libft/libft.h"
-# include "../stack/ft_stack.h"
-# include "../support_functions/support_functions.h"
-
-
-int		execute_intruction(char *instruction, t_stack *a, t_stack *b);
-
-void	ft_verbose(t_stack *a, t_stack *b, char *instruction);
-void	fill_stack(t_stack *stack, int start, int argc, char **argv);
-
-#endif
+void	ft_manage_execution_error(t_stack *a, t_stack *b, int error)
+{
+	ft_destroy_stack(&a);
+	ft_destroy_stack(&b);
+	if (error == EMAF)
+		ft_putstr_fd("memory allocation failure\n", 2);
+	exit(EXIT_FAILURE);
+}

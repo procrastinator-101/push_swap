@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/05/01 10:53:20 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/05/02 16:28:52 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,10 @@ LIBFT = $(LIBFT_PATH)/libft.a
 
 LIB = $(LIBFT)
 
-STACK_SRC = $(STACK_PATH)/construct_stack.c \
+STACK_SRC = $(STACK_PATH)/ft_construct_stack.c \
 			$(STACK_PATH)/ft_destroy_stack.c \
+			$(STACK_PATH)/ft_duplicate_stack.c \
+			$(STACK_PATH)/ft_empty_stack.c \
 			$(STACK_PATH)/ft_is_stack_sorted.c \
 			$(STACK_PATH)/ft_pop.c \
 			$(STACK_PATH)/ft_print_stack.c \
@@ -65,7 +67,14 @@ FT_SHARED_FUNCTIONS_SRC = $(FT_SHARED_FUNCTIONS_PATH)/execute_intruction.c \
 FT_CHECKER_SRC = $(FT_CHECKER_PATH)/checker.c \
 				 $(FT_CHECKER_PATH)/parser.c
 
-FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_get_solutions.c \
+FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_add_front_lst_solution.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_add_next_step.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_delete_lst_solution.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_destroy_lst_solution.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_destroy_paths.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_get_atomic_solutions.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_solve_case.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_sort_stack.c \
 				   $(FT_PUSH_SWAP_PATH)/push_swap.c
 
 CHECKER_SRC = $(FT_CHECKER_SRC) $(FT_SHARED_FUNCTIONS_SRC) $(STACK_SRC) \
