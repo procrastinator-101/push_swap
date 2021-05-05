@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 13:36:37 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/05 14:32:52 by youness          ###   ########.fr       */
+/*   Created: 2019/10/10 17:51:15 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/04/04 21:19:12 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_stdlib.h"
 
-# include "ft_lst/ft_lst.h"
-# include "ft_math/ft_math.h"
-# include "ft_ctype/ft_ctype.h"
-# include "ft_stdio/ft_stdio.h"
-# include "ft_stdlib/ft_stdlib.h"
-# include "ft_string/ft_string.h"
-# include "ft_algorithms/ft_algorithms.h"
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	sp;
+	int	ret;
 
-#endif
+	sp = 0;
+	while (str[sp] == 32 || (str[sp] > 8 && str[sp] < 14))
+		sp++;
+	i = sp;
+	if (str[sp] == '-' || str[sp] == '+')
+		i++;
+	ret = 0;
+	while (str[i] > 47 && str[i] < 58)
+		ret = ret * 10 + (str[i++] - 48);
+	return (str[sp] == '-' ? -ret : ret);
+}

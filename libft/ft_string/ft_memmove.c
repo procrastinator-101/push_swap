@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 13:36:37 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/05 14:32:52 by youness          ###   ########.fr       */
+/*   Created: 2019/10/09 19:25:43 by yarroubi          #+#    #+#             */
+/*   Updated: 2019/10/20 14:06:05 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_string.h"
 
-# include "ft_lst/ft_lst.h"
-# include "ft_math/ft_math.h"
-# include "ft_ctype/ft_ctype.h"
-# include "ft_stdio/ft_stdio.h"
-# include "ft_stdlib/ft_stdlib.h"
-# include "ft_string/ft_string.h"
-# include "ft_algorithms/ft_algorithms.h"
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	char	*str;
+	char	*ptr;
+	int		i;
 
-#endif
+	if (!dst && !src)
+		return (dst);
+	str = (char *)dst;
+	ptr = (char *)src;
+	i = -1;
+	if (src < dst)
+		while (len--)
+			str[len] = ptr[len];
+	else
+		while (++i < (int)len)
+			str[i] = ptr[i];
+	return (dst);
+}

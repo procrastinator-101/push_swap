@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 13:36:37 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/05 14:32:52 by youness          ###   ########.fr       */
+/*   Created: 2019/10/10 15:53:45 by yarroubi          #+#    #+#             */
+/*   Updated: 2019/10/21 14:20:16 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_string.h"
 
-# include "ft_lst/ft_lst.h"
-# include "ft_math/ft_math.h"
-# include "ft_ctype/ft_ctype.h"
-# include "ft_stdio/ft_stdio.h"
-# include "ft_stdlib/ft_stdlib.h"
-# include "ft_string/ft_string.h"
-# include "ft_algorithms/ft_algorithms.h"
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	size_t i;
+	size_t j;
 
-#endif
+	i = -1;
+	while (++i < len && haystack[i])
+	{
+		j = 0;
+		while (needle[j] && haystack[i + j] == needle[j] && i + j < len)
+			j++;
+		if (needle[j] == 0)
+			return ((char *)(haystack + i));
+	}
+	return (needle[0] == 0 ? (char *)haystack : 0);
+}

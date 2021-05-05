@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 21:04:47 by yarroubi          #+#    #+#              #
-#    Updated: 2021/05/05 15:48:40 by youness          ###   ########.fr        #
+#    Updated: 2021/05/05 15:38:23 by youness          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,27 +95,42 @@ FT_STRING_SRC = $(FT_STRING_PATH)/ft_bzero.c \
 
 FT_ALGORITHMS_SRC = $(FT_ALGORITHMS_PATH)/ft_quick_sort.c
 
-SRC = $(FT_LST_SRC) $(FT_MATH_SRC) $(FT_CTYPE_SRC) $(FT_STDIO_SRC) \
-	  $(FT_STDLIB_SRC) $(FT_STRING_SRC) $(FT_ALGORITHMS_SRC)
-
-OBJ = $(SRC:.c=.o)
-
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-
 all: $(NAME)
 
-$(NAME):$(OBJ)
-	@ar -rc $(NAME) $(OBJ) ; ranlib $(NAME)
+$(NAME): $(SUB_ARCHIVES)
+	@ar -rc $(NAME) $(SUB_ARCHIVES) ; ranlib $(NAME)
 
-%.o: %.c
-	@$(CC) -o $@ -c $< $(CFLAGS)
+$(FT_LST):
+	$(MAKE) -C $(FT_LST_PATH)
+
+$(FT_MATH):
+	$(MAKE) -C $(FT_MATH_PATH)
+
+$(FT_CTYPE):
+	$(MAKE) -C $(FT_CTYPE_PATH)
+
+$(FT_STDIO):
+	$(MAKE) -C $(FT_STDIO_PATH)
+
+$(FT_STDLIB):
+	$(MAKE) -C $(FT_STDLIB_PATH)
+
+$(FT_STRING):
+	$(MAKE) -C $(FT_STRING_PATH)
+
+$(FT_ALGORITHMS):
+	$(MAKE) -C $(FT_ALGORITHMS_PATH)
 
 clean:
-	@rm -rf $(OBJ)
+	$(MAKE) -C $(FT_LST_PATH) fclean
+	$(MAKE) -C $(FT_MATH_PATH) fclean
+	$(MAKE) -C $(FT_CTYPE_PATH) fclean
+	$(MAKE) -C $(FT_STDIO_PATH) fclean
+	$(MAKE) -C $(FT_STDLIB_PATH) fclean
+	$(MAKE) -C $(FT_STRING_PATH) fclean
+	$(MAKE) -C $(FT_ALGORITHMS_PATH) fclean
 
 fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
-
