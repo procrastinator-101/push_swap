@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 15:49:08 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 15:49:57 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/05/05 17:42:20 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 void	ft_empty_stack(t_stack *stack)
 {
 	free(stack->content);
+	stack->content = 0;
 	stack->size = 0;
 }

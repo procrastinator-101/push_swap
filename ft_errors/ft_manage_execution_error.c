@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "errors.h"
+#include "ft_errors.h"
 
 void	ft_manage_execution_error(t_stack *a, t_stack *b, int error)
 {

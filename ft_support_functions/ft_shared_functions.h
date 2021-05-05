@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_shared_functions.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 19:25:38 by yarroubi          #+#    #+#             */
-/*   Updated: 2019/10/20 17:12:09 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/04/06 17:46:40 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/05/02 15:55:43 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_SHARED_FUNCTIONS_H
+# define FT_SHARED_FUNCTIONS_H
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
-{
-	char	*ptr;
-	int		i;
+# include "errors.h"
+# include "../libft/libft.h"
+# include "../stack/ft_stack.h"
+# include "../support_functions/support_functions.h"
 
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	ptr = (char *)malloc((i + 1) * sizeof(char));
-	if (!ptr)
-		return (0);
-	i = -1;
-	while (s[++i])
-		ptr[i] = f((unsigned)i, s[i]);
-	ptr[i] = 0;
-	return (ptr);
-}
+
+int		execute_intruction(char *instruction, t_stack *a, t_stack *b);
+
+void	ft_verbose(t_stack *a, t_stack *b, char *instruction);
+void	fill_stack(t_stack *stack, int start, int argc, char **argv);
+
+#endif

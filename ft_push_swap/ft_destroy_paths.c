@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 13:20:28 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 16:23:06 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/05/05 18:09:28 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_destroy_paths(t_list **paths)
 	t_list	*path;
 	t_list	*next;
 
-	if (!(*paths))
+	if (!*paths)
 		return ;
 	path = (*paths)->content;
 	while (path)

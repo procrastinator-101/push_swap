@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 15:31:42 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 17:12:24 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/05/05 18:33:34 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@ int	ft_solve_case(t_solution *solution, t_stack *src, t_list *path, \
 			int nb_instuctions)
 {
 	int		i;
+	int		ret;
 	t_stack	*tmp;
 
 	if (ft_is_stack_sorted(src, ASCENDANT))
 	{
-		if (solution->nb_instuctions > nb_instuctions)
+		if (solution->nb_instuctions >= nb_instuctions)
 		{
-			ft_destroy_paths(&(solution->paths));
+			if (solution->nb_instuctions > nb_instuctions)
+				ft_destroy_paths(&(solution->paths));
 			ft_lstadd_front(&(solution->paths), path);
+			solution->nb_instuctions = nb_instuctions;
 		}
-		else if (solution->nb_instuctions == nb_instuctions)
-			ft_lstadd_front(&(solution->paths), path);
 		return (0);
 	}
 	if (nb_instuctions > solution->nb_instuctions)
@@ -34,14 +35,16 @@ int	ft_solve_case(t_solution *solution, t_stack *src, t_list *path, \
 	i = -1;
 	while (++i < 3)
 	{
+		ret = 0;
 		tmp = ft_duplicate_stack(src);
 		if (!tmp)
 			return (1);
-		ft_add_next_step(&path, i);
+		ft_add_next_step(&path, tmp, i);
 		if (path)
-			ft_solve_case(solution, tmp, path, nb_instuctions + 1);
+			ret = ft_solve_case(solution, tmp, path, nb_instuctions + 1);
 		ft_destroy_stack(&tmp);
-		if (!path)
+		ft_lstdel_back(&path);
+		if (!path || ret)
 			return (1);
 	}
 	return (0);

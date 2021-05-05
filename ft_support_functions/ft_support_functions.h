@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errors.h                                        :+:      :+:    :+:   */
+/*   ft_support_functions.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 19:06:10 by youness           #+#    #+#             */
-/*   Updated: 2021/05/05 17:52:01 by youness          ###   ########.fr       */
+/*   Created: 2021/05/05 17:47:24 by youness           #+#    #+#             */
+/*   Updated: 2021/05/05 18:04:04 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERRORS_H
-# define ERRORS_H
+#ifndef FT_SUPPORT_FUNCTIONS_H
+# define FT_SUPPORT_FUNCTIONS_H
 
-# include "../stack/ft_stack.h"
+# include <limits.h>
 # include "../libft/libft.h"
+# include "../ft_errors/ft_errors.h"
 
-# define EDUP	-1
-# define EIOF	-2
-# define EII	-3
-# define ENAI	-4
+int		ft_atoi_check_len(char *str, int *error, int *len);
+int		ft_execute_intruction(char *instruction, t_stack *a, t_stack *b);
 
-void	ft_manage_execution_error(t_stack *a, t_stack *b, int error);
-void	ft_manage_parsing_error(t_stack *stack, int error);
+void	ft_verbose(t_stack *a, t_stack *b, char *instruction);
+void	ft_parse_arguments(t_stack *stack, int argb, int argc, char **argv);
 
 #endif
