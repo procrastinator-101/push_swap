@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 18:42:06 by youness           #+#    #+#             */
-/*   Updated: 2021/04/06 18:04:24 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/05/05 20:46:10 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 int	main(int argc, char **argv)
 {
 	int		fd;
-	t_stack	a;
-	t_stack	b;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc < 2)
 		return (0);
+	a = ft_construct_stack();
+	if (!a)
+		ft_manage_execution_error(a, NULL, EMAF);
+	b = ft_construct_stack();
+	if (!b)
+		ft_manage_execution_error(a, b, EMAF);
+	ft_parse_arguments(a, 1, argc, argv);
+	ft_verbose(a, b, 0);
 	fd = 0;
-	construct_stack(&a);
-	construct_stack(&b);
-	fill_stack(&a, 1, argc, argv);
-	ft_verbose(&a, &b, 0);
-	parser(fd, &a, &b);
-	if (ft_is_stack_sorted(&a, ASCENDANT) && !b.size)
+	parser(fd, a, b);
+	if (ft_is_stack_sorted(a, ASCENDANT) && !b->size)
 		printf("Ok\n");
 	else
 		printf("Ko\n");

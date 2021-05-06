@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 15:36:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 15:45:41 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/05/05 20:55:20 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_stack	*ft_duplicate_stack(t_stack *src)
 {
 	int		i;
+	int		ret;
 	t_stack	*dst;
 
 	dst = ft_construct_stack();

@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 16:58:25 by youness           #+#    #+#             */
-/*   Updated: 2021/05/05 14:12:09 by youness          ###   ########.fr       */
+/*   Updated: 2021/05/05 22:50:55 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **tail, void (*del)(void*));
 
 int					ft_lstsize(t_list *lst);
+void				ft_lstprint(t_list *tail, void (*print)(void *));
 t_list				*ft_lstlast(t_list *lst);
 
 void				ft_lstiter(t_list *lst, void (*f)(void *));

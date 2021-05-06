@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errors.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 19:06:10 by youness           #+#    #+#             */
-/*   Updated: 2021/05/05 20:45:52 by youness          ###   ########.fr       */
+/*   Created: 2021/05/05 22:54:03 by youness           #+#    #+#             */
+/*   Updated: 2021/05/05 22:58:12 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERRORS_H
-# define ERRORS_H
+#include "ft_stdio.h"
 
-# include "../ft_stack/ft_stack.h"
-# include "../libft/libft.h"
+void	ft_putstr(char *str)
+{
+	int	len;
 
-# define EDUP	-1
-# define EIOF	-2
-# define EII	-3
-# define EIA	-4
-# define EMAF	-5
-
-void	ft_manage_execution_error(t_stack *a, t_stack *b, int error);
-void	ft_manage_parsing_error(t_stack *stack, int error);
-
-#endif
+	len = 0;
+	while (str[len])
+		len++;
+	write(STDIN_FILENO, str, len);
+}

@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 17:54:42 by youness           #+#    #+#             */
-/*   Updated: 2021/05/05 17:59:38 by youness          ###   ########.fr       */
+/*   Updated: 2021/05/05 20:48:42 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	ft_parse_arguments(t_stack *stack, int argb, int argc, char **argv)
 		start = 0;
 		while (argv[argc][start])
 		{
-			num = ft_atoi_check(argv[argc] + start, &error, &len);
+			num = ft_atoi_check_len(argv[argc] + start, &error, &len);
 			if (error)
 				ft_manage_parsing_error(stack, error);
 			if (ft_check_duplicate(stack, num))
-				manage_error(stack, EDUP);
+				ft_manage_parsing_error(stack, EDUP);
 			ft_push(stack, num);
 			start += len;
 		}

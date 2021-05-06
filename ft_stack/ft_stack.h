@@ -6,15 +6,15 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 15:36:57 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 15:50:18 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/05/05 20:38:38 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STACK_H
 # define FT_STACK_H
 
-# include "stdio.h"
-# include "stdlib.h"
+# include <stdio.h>
+# include <stdlib.h>
 
 # define ASCENDANT			0
 # define DESCENDANT			1

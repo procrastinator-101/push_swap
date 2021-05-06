@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 21:04:47 by yarroubi          #+#    #+#              #
-#    Updated: 2021/05/05 15:48:40 by youness          ###   ########.fr        #
+#    Updated: 2021/05/05 22:59:24 by youness          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ FT_LST_SRC = $(FT_LST_PATH)/ft_lstadd_back.c \
 			 $(FT_LST_PATH)/ft_lstlast.c \
 			 $(FT_LST_PATH)/ft_lstmap.c \
 			 $(FT_LST_PATH)/ft_lstnew.c \
+			 $(FT_LST_PATH)/ft_lstprint.c \
 			 $(FT_LST_PATH)/ft_lstsize.c
 
 FT_MATH_SRC = $(FT_MATH_PATH)/ft_dmax.c \
@@ -63,6 +64,7 @@ FT_CTYPE_SRC = $(FT_CTYPE_PATH)/ft_isalnum.c \
 FT_STDIO_SRC = $(FT_STDIO_PATH)/ft_putchar_fd.c \
 			   $(FT_STDIO_PATH)/ft_putendl_fd.c \
 			   $(FT_STDIO_PATH)/ft_putnbr_fd.c \
+			   $(FT_STDIO_PATH)/ft_putstr.c \
 			   $(FT_STDIO_PATH)/ft_putstr_fd.c
 
 FT_STDLIB_SRC = $(FT_STDLIB_PATH)/ft_atoi.c \

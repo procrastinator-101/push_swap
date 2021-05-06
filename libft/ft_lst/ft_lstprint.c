@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errors.h                                        :+:      :+:    :+:   */
+/*   ft_lstprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 19:06:10 by youness           #+#    #+#             */
-/*   Updated: 2021/05/05 20:45:52 by youness          ###   ########.fr       */
+/*   Created: 2021/05/05 22:48:32 by youness           #+#    #+#             */
+/*   Updated: 2021/05/05 22:50:15 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERRORS_H
-# define ERRORS_H
+#include "ft_lst.h"
 
-# include "../ft_stack/ft_stack.h"
-# include "../libft/libft.h"
-
-# define EDUP	-1
-# define EIOF	-2
-# define EII	-3
-# define EIA	-4
-# define EMAF	-5
-
-void	ft_manage_execution_error(t_stack *a, t_stack *b, int error);
-void	ft_manage_parsing_error(t_stack *stack, int error);
-
-#endif
+void	ft_lstprint(t_list *tail, void (*print)(void *))
+{
+	while (tail)
+	{
+		print(tail->content);
+		tail = tail->next;
+	}
+}

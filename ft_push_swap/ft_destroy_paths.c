@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 13:20:28 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/05 18:09:28 by youness          ###   ########.fr       */
+/*   Updated: 2021/05/06 00:10:21 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ void	ft_destroy_paths(t_list **paths)
 	path = (*paths)->content;
 	while (path)
 	{
+		printf("path = %p next = %p\n", path, path->next);
 		next = path->next;
 		ft_lstclear(&path, free);
 		path = next;
 	}
+	printf("out\n");
 	*paths = 0;
 }
