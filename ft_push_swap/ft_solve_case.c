@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 15:31:42 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/05 23:49:26 by youness          ###   ########.fr       */
+/*   Updated: 2021/05/06 15:43:41 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,12 @@ int	ft_solve_case(t_solution *solution, t_stack *src, t_list *path, \
 	{
 		ret = 0;
 		tmp = ft_duplicate_stack(src);
-		printf("ret = %d\n", ret);
 		if (!tmp)
 			return (1);
 		ft_add_next_step(&path, tmp, i);
-		printf("ret1 = %d\n", ret);
 		if (path)
 			ret = ft_solve_case(solution, tmp, path, nb_instuctions + 1);
-		printf("ret2 = %d\n", ret);
 		ft_destroy_stack(&tmp);
-		printf("ret3 = %d\n", ret);
 		if (ret)
 			ft_lstclear(&path, free);
 		if (!path)
@@ -64,7 +60,6 @@ t_solution	*ft_get_case_solution(t_stack *src)
 	solution->paths = NULL;
 	solution->nb_instuctions = MAX_INSTRUCTIONS;
 	ret = ft_solve_case(solution, src, NULL, 0);
-	printf("ok\n");
 	if (ret)
 		ft_delete_lst_solution(&solution);
 	return (solution);

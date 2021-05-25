@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/01 15:30:36 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/02 17:12:25 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/05/06 18:56:18 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,11 @@ t_solution	*ft_solve_atomic_cases(t_solution *solutions, t_stack *src, \
 	while (i++ < src->size)
 	{
 		dst->content[index] = ft_get_number_to_permute(src, dst, index);
+		ft_print_stack(dst);
+		/*
 		solutions = ft_solve_atomic_cases(solutions, src, dst, i + 1);
+		*/
+		solutions = NULL;
 		if (!solutions)
 			return (0);
 	}
