@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 18:04:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 18:05:58 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/06/23 19:49:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_case_clear(t_case **tail)
 	while (head)
 	{
 		next = head->next;
-		ft_case_del(head, del);
+		ft_case_del(head);
 		head = next;
 	}
 	*tail = 0;

@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 17:54:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 18:18:30 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/06/23 19:47:43 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include "../ft_solution/ft_solution.h"
 
 typedef struct s_case
 {

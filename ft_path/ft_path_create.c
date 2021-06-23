@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_case_print.c                                    :+:      :+:    :+:   */
+/*   ft_path_create.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 18:11:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 19:49:19 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/06/23 19:55:56 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/06/23 19:55:56 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_case.h"
+#include "ft_path.h"
 
-void	ft_case_print(t_case *tail)
+t_path	*ft_path_create(char *str)
 {
-	int		i;
-	t_case	*head;
+	t_path	*node;
 
-	head = tail;
-	while (head)
-	{
-		i = -1;
-		while (++i < head->size)
-		{
-			printf("%d", head->arr[i]);
-			if (i < head->size - 1)
-				printf(" ");
-		}
-		printf("\n");
-		ft_solution_print(head->solutions);
-		head = head->next;
-	}
+	node = malloc(sizeof(t_path));
+	if (!node)
+		return (0);
+	node->str = str;
+	node->next = 0;
+	return (node);
 }

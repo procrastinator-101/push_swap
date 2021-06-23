@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 18:32:04 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 18:51:06 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/06/23 19:51:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_case	*ft_initialise_cases(void)
 {
+	int		i;
 	t_case	*tmp;
 	t_case	*cases;
 
@@ -25,7 +26,7 @@ t_case	*ft_initialise_cases(void)
 		if (!tmp)
 		{
 			ft_case_clear(&cases);
-			return (0)
+			return (0);
 		}
 		ft_case_addback(&cases, tmp);
 	}

@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_case_print.c                                    :+:      :+:    :+:   */
+/*   ft_path_del.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 18:11:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 19:49:19 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/06/23 19:55:56 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/06/23 19:55:56 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_case.h"
+#include "ft_path.h"
 
-void	ft_case_print(t_case *tail)
+void	ft_path_del(t_path *node)
 {
-	int		i;
-	t_case	*head;
-
-	head = tail;
-	while (head)
-	{
-		i = -1;
-		while (++i < head->size)
-		{
-			printf("%d", head->arr[i]);
-			if (i < head->size - 1)
-				printf(" ");
-		}
-		printf("\n");
-		ft_solution_print(head->solutions);
-		head = head->next;
-	}
+	if (!node)
+		return ;
+	free(node->str);
+	free(node);
 }
