@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_case_addback.c                                  :+:      :+:    :+:   */
+/*   ft_solution_print.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 18:02:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 18:24:05 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/06/23 18:25:45 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/06/23 18:26:25 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_case.h"
+#include "ft_solution.h"
 
-void	ft_case_addback(t_case **tail, t_case *node)
+void	ft_solution_print(t_solution *tail)
 {
-	t_case	*head;
+	t_solution	*head;
 
-	if (!*tail)
+	head = tail;
+	while (head)
 	{
-		*tail = node;
-		return ;
-	}
-	head = *tail;
-	while (head->next)
+		printf("%s\n", head->str);
 		head = head->next;
-	head->next = node;
+	}
 }

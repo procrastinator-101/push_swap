@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_append_permutation.c                            :+:      :+:    :+:   */
+/*   ft_solution_create.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 16:03:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 18:11:23 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/06/23 18:19:50 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/06/23 18:21:14 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "ft_solution.h"
 
-int	ft_append_permutation(t_list **permutations, int *arr, int size)
+t_solution	*ft_solution_create(char *str)
 {
-	int		i;
-	int		*ptr;
-	t_list	*node;
+	t_solution	*node;
 
-	ptr = malloc(size * sizeof(int));
-	if (!ptr)
-		ft_lstclear(permutations, free);
-	if (!ptr)
-		return (0);
-	i = -1;
-	while (++i < size)
-		ptr[i] = arr[i];
-	node = ft_lstnew(ptr);
+	node = malloc(sizeof(t_solution));
 	if (!node)
-	{
-		free(ptr);
-		ft_lstclear(permutations, free);
 		return (0);
-	}
-	ft_lstadd_back(permutations, node);
-	return (1);
+	node->str = str;
+	node->next = 0;
 }

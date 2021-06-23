@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_append_permutation.c                            :+:      :+:    :+:   */
+/*   ft_construct_cases.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 16:03:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 18:11:23 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/06/23 18:51:18 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/06/23 19:38:24 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_append_permutation(t_list **permutations, int *arr, int size)
+t_case	*ft_construct_cases(t_list *permutations, int size)
 {
-	int		i;
-	int		*ptr;
-	t_list	*node;
+	t_case	*tmp;
+	t_case	*cases;
+	t_list	*head;
 
-	ptr = malloc(size * sizeof(int));
-	if (!ptr)
-		ft_lstclear(permutations, free);
-	if (!ptr)
-		return (0);
-	i = -1;
-	while (++i < size)
-		ptr[i] = arr[i];
-	node = ft_lstnew(ptr);
-	if (!node)
+	cases = 0;
+	head = permutations;
+	while (head)
 	{
-		free(ptr);
-		ft_lstclear(permutations, free);
-		return (0);
+		tmp = ft_case_create(permutations->content, size, 0);
+		if (!tmp)
+		{
+			ft_case_clear(&cases);
+			ft_lstclear(&head);
+			break ;
+		}
+		ft_case_addback(&cases, tmp);
+		head = head->next;
 	}
-	ft_lstadd_back(permutations, node);
-	return (1);
+	free(permutations);
+	return (cases);
 }

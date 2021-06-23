@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/06/23 16:12:28 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/06/23 19:46:23 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ PUSH_SWAP = push_swap
 NAME = $(PUSH_SWAP)
 
 LIBFT_PATH = libft
+FT_CASE_PATH = ft_case
 FT_STACK_PATH = ft_stack
 FT_ERRORS_PATH = ft_errors
+FT_SOLUTION_PATH = ft_solution
 FT_PUSH_SWAP_PATH = ft_push_swap
 FT_SUPPORT_FUNCTIONS_PATH = ft_support_functions
 
@@ -46,6 +48,20 @@ FT_STACK_SRC = $(FT_STACK_PATH)/ft_construct_stack.c \
 			   $(FT_STACK_PATH)/ft_rotate_stack.c \
 			   $(FT_STACK_PATH)/ft_swap_stack.c
 
+FT_CASE_SRC = $(FT_CASE_PATH)/ft_case_addback.c \
+			  $(FT_CASE_PATH)/ft_case_addfront.c \
+			  $(FT_CASE_PATH)/ft_case_clear.c \
+			  $(FT_CASE_PATH)/ft_case_create.c \
+			  $(FT_CASE_PATH)/ft_case_del.c \
+			  $(FT_CASE_PATH)/ft_case_print.c
+
+FT_SOLUTION_SRC = $(FT_SOLUTION_PATH)/ft_solution_addback.c \
+				  $(FT_SOLUTION_PATH)/ft_solution_addfront.c \
+				  $(FT_SOLUTION_PATH)/ft_solution_clear.c \
+				  $(FT_SOLUTION_PATH)/ft_solution_create.c \
+				  $(FT_SOLUTION_PATH)/ft_solution_del.c \
+				  $(FT_SOLUTION_PATH)/ft_solution_print.c
+
 FT_SUPPORT_FUNCTIONS_SRC = $(FT_SUPPORT_FUNCTIONS_PATH)/ft_atoi_check_len.c \
 						   $(FT_SUPPORT_FUNCTIONS_PATH)/ft_execute_intruction.c \
 						   $(FT_SUPPORT_FUNCTIONS_PATH)/ft_parse_arguments.c \
@@ -57,9 +73,12 @@ GET_NEXT_LINE_SRC = $(GET_NEXT_LINE_PATH)/get_next_line.c \
 FT_CHECKER_SRC = $(FT_CHECKER_PATH)/checker.c \
 				 $(FT_CHECKER_PATH)/parser.c
 
-FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_push_swap.c \
-				   $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
-				   $(FT_PUSH_SWAP_PATH)/ft_generate_permutations.c
+FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_construct_cases.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_generate_permutations.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_getncases.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_initialise_cases.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_push_swap.c
 
 FT_ERRORS_SRC = $(FT_ERRORS_PATH)/ft_manage_execution_error.c \
 				$(FT_ERRORS_PATH)/ft_manage_parsing_error.c
@@ -68,7 +87,7 @@ CHECKER_SRC = $(FT_CHECKER_SRC) $(FT_SUPPORT_FUNCTIONS_SRC) $(FT_STACK_SRC) \
 			  $(FT_ERRORS_SRC) $(GET_NEXT_LINE_SRC) 
 
 PUSH_SWAP_SRC = $(FT_PUSH_SWAP_SRC) $(FT_SUPPORT_FUNCTIONS_SRC) $(FT_STACK_SRC) \
-				$(FT_ERRORS_SRC)
+				$(FT_CASE_SRC) $(FT_SOLUTION_SRC) $(FT_ERRORS_SRC)
 
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 PUSH_SWAP_OBJ = $(PUSH_SWAP_SRC:.c=.o)

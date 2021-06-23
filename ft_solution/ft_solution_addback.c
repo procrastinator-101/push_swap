@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_case_addback.c                                  :+:      :+:    :+:   */
+/*   ft_solution_addback.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 18:02:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 18:24:05 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/06/23 18:22:51 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/06/23 18:23:51 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_case.h"
+#include "ft_solution.h"
 
-void	ft_case_addback(t_case **tail, t_case *node)
+void	ft_solution_addback(t_solution **tail, t_solution *node)
 {
-	t_case	*head;
+	t_solution	*head;
 
 	if (!*tail)
 	{
