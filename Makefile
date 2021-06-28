@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/06/23 20:02:30 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/06/28 19:51:35 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,9 @@ FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_construct_cases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_generate_permutations.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_getncases.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_getsequence.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_initialise_cases.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_median.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_push_swap.c
 
 FT_ERRORS_SRC = $(FT_ERRORS_PATH)/ft_manage_execution_error.c \

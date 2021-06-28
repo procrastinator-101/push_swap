@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:47:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 19:51:42 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/06/28 19:46:18 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ t_list	*ft_generate_permutations(int *arr, int size);
 t_case	*ft_getncases(int n);
 t_case	*ft_initialise_cases(void);
 t_case	*ft_construct_cases(t_list *permutations, int size);
+int		*ft_getsequence(int *arr, int size);
+int		ft_median(int *arr, int size, int *error);
 
 #endif
