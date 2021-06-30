@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 12:59:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/30 13:11:52 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/06/30 17:53:06 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_matrix	*ft_matrix_create(int rows, int cols)
 {
 	t_matrix	*mat;
 
-	mat = malloc(t_sizeof(t_matrix));
+	mat = malloc(sizeof(t_matrix));
 	if (!mat)
 		return (0);
 	mat->rows = rows;

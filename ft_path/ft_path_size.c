@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_path_print.c                                    :+:      :+:    :+:   */
+/*   ft_path_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 19:55:56 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/30 18:36:31 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/06/30 18:21:15 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/06/30 18:22:49 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_path.h"
 
-void	ft_path_print(t_path *tail)
+int	ft_path_size(t_path *path)
 {
-	t_path	*head;
+	int	ret;
 
-	head = tail;
-	printf("===================================\n");
-	while (head)
+	ret = 0;
+	while (path)
 	{
-		printf("%s\n", head->str);
-		head = head->next;
+		ret++;
+		path = path->next;
 	}
-	printf("===================================\n");
+	return (ret);
 }

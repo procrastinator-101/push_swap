@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 19:56:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/30 17:46:26 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/06/30 18:23:05 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+
+# include "../libft/libft.h"
+# include "../ft_matrix/ft_matrix.h"
 
 typedef struct s_path
 {
@@ -28,6 +31,12 @@ void				ft_path_clear(t_path **tail);
 void				ft_path_pushback(t_path **path, char *str);
 void				ft_path_addfront(t_path **tail, t_path *node);
 void				ft_path_addback(t_path **tail, t_path *node);
+
+int					ft_path_size(t_path *path);
+int					ft_getcandidate(t_matrix *mat, int i, int j);
+
 t_path				*ft_path_create(char *str);
+t_path				*ft_path_intersect(t_path *p1, t_path *p2);
+t_matrix			*ft_path_getintersection_matrix(t_path *p1, t_path *p2);
 
 #endif

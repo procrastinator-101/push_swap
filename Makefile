@@ -3,10 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
+#    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/06/30 18:18:00 by yarroubi          #+#    #+#              #
+#    Updated: 2021/06/30 18:23:28 by yarroubi         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/06/30 17:51:55 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/06/30 18:16:06 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,13 +76,17 @@ FT_SOLUTION_SRC = $(FT_SOLUTION_PATH)/ft_solution_addback.c \
 				  $(FT_SOLUTION_PATH)/ft_solution_del.c \
 				  $(FT_SOLUTION_PATH)/ft_solution_print.c
 
-FT_PATH_SRC = $(FT_PATH_PATH)/ft_path_addback.c \
+FT_PATH_SRC = $(FT_PATH_PATH)/ft_getcandidate.c \
+			  $(FT_PATH_PATH)/ft_path_addback.c \
 			  $(FT_PATH_PATH)/ft_path_addfront.c \
 			  $(FT_PATH_PATH)/ft_path_clear.c \
 			  $(FT_PATH_PATH)/ft_path_create.c \
 			  $(FT_PATH_PATH)/ft_path_del.c \
+			  $(FT_PATH_PATH)/ft_path_getintersection_matrix.c \
+			  $(FT_PATH_PATH)/ft_path_intersect.c \
 			  $(FT_PATH_PATH)/ft_path_print.c \
-			  $(FT_PATH_PATH)/ft_path_pushback.c
+			  $(FT_PATH_PATH)/ft_path_pushback.c \
+			  $(FT_PATH_PATH)/ft_path_size.c
 
 FT_MATRIX_SRC = $(FT_MATRIX_PATH)/ft_matrix_clear.c \
 				$(FT_MATRIX_PATH)/ft_matrix_create.c \
@@ -95,7 +111,8 @@ FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_getsequence.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_initialise_cases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_median.c \
-				   $(FT_PUSH_SWAP_PATH)/ft_push_swap.c
+				   $(FT_PUSH_SWAP_PATH)/ft_test_path.c
+				   #$(FT_PUSH_SWAP_PATH)/ft_push_swap.c
 
 FT_ERRORS_SRC = $(FT_ERRORS_PATH)/ft_manage_execution_error.c \
 				$(FT_ERRORS_PATH)/ft_manage_parsing_error.c
