@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_path.h                                          :+:      :+:    :+:   */
+/*   ft_matrix.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 19:56:40 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/30 17:46:26 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/06/30 12:51:10 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/06/30 13:22:12 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PATH_H
-# define FT_PATH_H
+#ifndef FT_MATRIX_H
+# define FT_MATRIX_H
 
 # include <stdio.h>
 # include <stdlib.h>
 
-typedef struct s_path
+typedef struct s_matrix
 {
-	char			*str;
-	struct s_path	*next;
-}					t_path;
+	int		**content;
+	int		rows;
+	int		cols;
+}			t_matrix;
 
-void				ft_path_print(t_path *tail);
-void				ft_path_del(t_path *node);
-void				ft_path_clear(t_path **tail);
-void				ft_path_pushback(t_path **path, char *str);
-void				ft_path_addfront(t_path **tail, t_path *node);
-void				ft_path_addback(t_path **tail, t_path *node);
-t_path				*ft_path_create(char *str);
+void		ft_matrix_print(t_matrix *mat);
+void		ft_matrix_nclear(t_matrix **mat, int n);
+void		ft_matrix_clear(t_matrix **mat);
+t_matrix	*ft_matrix_create(int rows, int cols);
 
 #endif

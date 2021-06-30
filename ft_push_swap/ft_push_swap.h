@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:47:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/28 19:46:18 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/06/30 13:22:52 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../ft_case/ft_case.h"
 # include "../ft_stack/ft_stack.h"
 # include "../ft_errors/ft_errors.h"
+# include "../ft_matrix/ft_matrix.h"
 # include "../ft_support_functions/ft_support_functions.h"
 
 int		ft_append_permutation(t_list **permutations, int *arr, int size);

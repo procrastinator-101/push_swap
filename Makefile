@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/06/28 19:51:35 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/06/30 17:51:55 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ FT_PATH_PATH = ft_path
 FT_CASE_PATH = ft_case
 FT_STACK_PATH = ft_stack
 FT_ERRORS_PATH = ft_errors
+FT_MATRIX_PATH = ft_matrix
 FT_SOLUTION_PATH = ft_solution
 FT_PUSH_SWAP_PATH = ft_push_swap
 FT_SUPPORT_FUNCTIONS_PATH = ft_support_functions
@@ -68,7 +69,13 @@ FT_PATH_SRC = $(FT_PATH_PATH)/ft_path_addback.c \
 			  $(FT_PATH_PATH)/ft_path_clear.c \
 			  $(FT_PATH_PATH)/ft_path_create.c \
 			  $(FT_PATH_PATH)/ft_path_del.c \
-			  $(FT_PATH_PATH)/ft_path_print.c
+			  $(FT_PATH_PATH)/ft_path_print.c \
+			  $(FT_PATH_PATH)/ft_path_pushback.c
+
+FT_MATRIX_SRC = $(FT_MATRIX_PATH)/ft_matrix_clear.c \
+				$(FT_MATRIX_PATH)/ft_matrix_create.c \
+				$(FT_MATRIX_PATH)/ft_matrix_nclear.c \
+				$(FT_MATRIX_PATH)/ft_matrix_print.c
 
 FT_SUPPORT_FUNCTIONS_SRC = $(FT_SUPPORT_FUNCTIONS_PATH)/ft_atoi_check_len.c \
 						   $(FT_SUPPORT_FUNCTIONS_PATH)/ft_execute_intruction.c \
@@ -97,7 +104,8 @@ CHECKER_SRC = $(FT_CHECKER_SRC) $(FT_SUPPORT_FUNCTIONS_SRC) $(FT_STACK_SRC) \
 			  $(FT_ERRORS_SRC) $(GET_NEXT_LINE_SRC) 
 
 PUSH_SWAP_SRC = $(FT_PUSH_SWAP_SRC) $(FT_SUPPORT_FUNCTIONS_SRC) $(FT_STACK_SRC) \
-				$(FT_CASE_SRC) $(FT_SOLUTION_SRC) $(FT_PATH_SRC) $(FT_ERRORS_SRC)
+				$(FT_CASE_SRC) $(FT_SOLUTION_SRC) $(FT_PATH_SRC) \
+				$(FT_MATRIX_SRC) $(FT_ERRORS_SRC)
 
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 PUSH_SWAP_OBJ = $(PUSH_SWAP_SRC:.c=.o)
