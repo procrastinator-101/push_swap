@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_solution_print.c                                :+:      :+:    :+:   */
+/*   ft_path_removeback.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 18:25:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 12:27:37 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/01 11:31:50 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/01 11:33:50 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_solution.h"
+#include "ft_path.h"
 
-void	ft_solution_print(t_solution *tail)
+void	ft_path_removeback(t_path **tail)
 {
-	t_solution	*head;
+	t_path	*head;
 
-	head = tail;
-	while (head)
-	{
-		ft_path_print(head->path);
-		printf("nb_steps = %d\n", head->nb_steps);
+	if (!*tail)
+		return ;
+	head = *tail;
+	while (head->next)
 		head = head->next;
-	}
+	ft_path_del(head->next);
+	head->next = 0;
 }

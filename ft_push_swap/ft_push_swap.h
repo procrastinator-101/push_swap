@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:47:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/30 18:11:50 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/01 11:38:06 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include "../ft_errors/ft_errors.h"
 # include "../ft_matrix/ft_matrix.h"
 # include "../ft_support_functions/ft_support_functions.h"
+
+# define NB_INTRUCTIONS		3
 
 int		ft_append_permutation(t_list **permutations, int *arr, int size);
 

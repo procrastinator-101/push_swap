@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_solution_print.c                                :+:      :+:    :+:   */
+/*   ft_solve_atomic_case.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 18:25:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 12:27:37 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/01 09:55:48 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/01 11:05:27 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_solution.h"
+#include "ft_push_swap.h"
 
-void	ft_solution_print(t_solution *tail)
+int	ft_solve_atomic_case(t_case *node)
 {
-	t_solution	*head;
 
-	head = tail;
-	while (head)
-	{
-		ft_path_print(head->path);
-		printf("nb_steps = %d\n", head->nb_steps);
-		head = head->next;
-	}
 }

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_solution_print.c                                :+:      :+:    :+:   */
+/*   ft_path_clone.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 18:25:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 12:27:37 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/01 11:26:44 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/01 11:31:27 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_solution.h"
+#include "ft_path.h"
 
-void	ft_solution_print(t_solution *tail)
+t_path	*ft_path_clone(t_path *src)
 {
-	t_solution	*head;
+	t_path	*ret;
+	t_path	*head;
 
-	head = tail;
+	ret = 0;
+	head = src;
 	while (head)
 	{
-		ft_path_print(head->path);
-		printf("nb_steps = %d\n", head->nb_steps);
+		ft_path_pushback(&ret, head->str);
+		if (!ret)
+			return (0);
 		head = head->next;
 	}
+	return (ret);
 }

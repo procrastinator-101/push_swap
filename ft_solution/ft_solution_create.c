@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 18:19:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/23 20:00:48 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/01 12:26:59 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ t_solution	*ft_solution_create(t_path *path)
 		return (0);
 	node->path = path;
 	node->next = 0;
+	node->nb_steps = ft_path_size(path);
 	return (node);
 }

@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/30 18:18:00 by yarroubi          #+#    #+#              #
-#    Updated: 2021/06/30 18:23:28 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/07/01 11:35:26 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,12 +80,14 @@ FT_PATH_SRC = $(FT_PATH_PATH)/ft_getcandidate.c \
 			  $(FT_PATH_PATH)/ft_path_addback.c \
 			  $(FT_PATH_PATH)/ft_path_addfront.c \
 			  $(FT_PATH_PATH)/ft_path_clear.c \
+			  $(FT_PATH_PATH)/ft_path_clone.c \
 			  $(FT_PATH_PATH)/ft_path_create.c \
 			  $(FT_PATH_PATH)/ft_path_del.c \
 			  $(FT_PATH_PATH)/ft_path_getintersection_matrix.c \
 			  $(FT_PATH_PATH)/ft_path_intersect.c \
 			  $(FT_PATH_PATH)/ft_path_print.c \
 			  $(FT_PATH_PATH)/ft_path_pushback.c \
+			  $(FT_PATH_PATH)/ft_path_removeback.c \
 			  $(FT_PATH_PATH)/ft_path_size.c
 
 FT_MATRIX_SRC = $(FT_MATRIX_PATH)/ft_matrix_clear.c \
