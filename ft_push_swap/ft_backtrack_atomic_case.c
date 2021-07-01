@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 09:57:20 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 19:35:48 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/01 20:00:55 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,15 @@ static t_solution	*ft_backtrack_step(t_stack *src, t_path *path, int depth, \
 			return (ft_clean_residus(0, ret));
 		if (solution->path)
 		{
-			ft_solution_remove_shadows(&ret);
 			ft_solution_addback(&ret, solution);
+			ft_solution_remove_shadows(&ret, solution->nb_steps);
 		}
 		else if (!ret)
 			ft_solution_addback(&ret, solution);
 		else
 			ft_solution_del(solution);
 		ft_path_removeback(&path);
-		ft_path_print(path);
 	}
-	printf("ret = %p\n", ret);
 	return (ret);
 }
 

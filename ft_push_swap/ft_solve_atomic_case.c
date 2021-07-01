@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 09:55:48 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 18:16:15 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/01 20:00:57 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,7 @@ t_solution	*ft_solve_atomic_case(t_case *node)
 	stack = ft_arr_to_stack(node->arr, node->size);
 	if (!stack)
 		return (0);
-	for (int i = 0; i < node->size; i++)
-		printf("%d ", node->arr[i]);
-	printf("\n");
-	printf("enter\n");
 	ret = ft_backtrack_atomic_case(stack, 0, 0, &max_depth);
-	ft_solution_print(ret);
-	printf("leave\n");
 	ft_destroy_stack(&stack);
 	return (ret);
 }

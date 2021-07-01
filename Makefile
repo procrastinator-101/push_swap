@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/30 18:18:00 by yarroubi          #+#    #+#              #
-#    Updated: 2021/07/01 18:33:02 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/07/01 19:40:21 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,9 +74,8 @@ FT_SOLUTION_SRC = $(FT_SOLUTION_PATH)/ft_solution_addback.c \
 				  $(FT_SOLUTION_PATH)/ft_solution_clear.c \
 				  $(FT_SOLUTION_PATH)/ft_solution_create.c \
 				  $(FT_SOLUTION_PATH)/ft_solution_del.c \
-				  $(FT_SOLUTION_PATH)/ft_solution_islonger.c \
 				  $(FT_SOLUTION_PATH)/ft_solution_print.c \
-				  $(FT_SOLUTION_PATH)/ft_solution_remove_if.c
+				  $(FT_SOLUTION_PATH)/ft_solution_remove_shadows.c
 
 FT_PATH_SRC = $(FT_PATH_PATH)/ft_getcandidate.c \
 			  $(FT_PATH_PATH)/ft_path_addback.c \

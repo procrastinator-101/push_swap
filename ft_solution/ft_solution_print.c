@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 18:25:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 14:42:17 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/01 19:47:50 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_solution_print(t_solution *tail)
 	while (head)
 	{
 		printf("==========================================\n");
-		ft_path_print(head->path);
 		printf("nb_steps = %d\n", head->nb_steps);
+		ft_path_print(head->path);
 		head = head->next;
 		printf("==========================================\n");
 	}

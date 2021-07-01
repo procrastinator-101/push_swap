@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_solution_remove_if.c                            :+:      :+:    :+:   */
+/*   ft_solution_remove_shadows.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 13:00:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 13:07:10 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/01 19:36:50 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/01 19:39:17 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_solution.h"
 
-void	ft_solution_remove_if(t_solution **tail, int (*fun)(void *, void *), \
-		void *arg)
+void	ft_solution_remove_shadows(t_solution **tail, int nb_steps)
 {
 	t_solution	*head;
 	t_solution	*next;
@@ -24,7 +23,7 @@ void	ft_solution_remove_if(t_solution **tail, int (*fun)(void *, void *), \
 	while (head)
 	{
 		next = head->next;
-		if (fun(head, arg))
+		if (head->nb_steps > nb_steps && !head->path)
 		{
 			if (head == *tail)
 				*tail = next;
