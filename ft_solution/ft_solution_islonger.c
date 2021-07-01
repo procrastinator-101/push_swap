@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_path_removeback.c                               :+:      :+:    :+:   */
+/*   ft_solution_islonger.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 11:31:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 18:13:01 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/01 14:46:21 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/01 14:46:48 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_path.h"
+#include "ft_solution.h"
 
-void	ft_path_removeback(t_path **tail)
+int	ft_solution_islonger(void *arg1, void *arg2)
 {
-	t_path	*head;
-
-	if (!*tail)
-		return ;
-	head = *tail;
-	if (!head->next)
-	{
-		ft_path_del(head);
-		*tail = 0;
-		return ;
-	}
-	while (head->next->next)
-		head = head->next;
-	ft_path_del(head->next);
-	head->next = 0;
+	if (((t_solution *)arg1)->nb_steps > ((t_solution *)arg2)->nb_steps)
+		return (1);
+	return (0);
 }

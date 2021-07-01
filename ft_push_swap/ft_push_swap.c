@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:42:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/06/30 18:01:04 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/01 14:54:48 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-	int		error;
-	int		*arr;
 	t_case	*cases;
 	t_stack	*a;
 	t_stack	*b;
@@ -27,11 +25,8 @@ int	main(int argc, char **argv)
 	cases = ft_initialise_cases();
 	if (!cases)
 		ft_manage_execution_error(a, b, EMAF);
-	//ft_case_print(cases);
-	printf("median = %d\n", ft_median(a->content, a->size, &error));
-	arr = ft_getsequence(a->content, a->size);
-	for (int i = 0; i < a->size; i++)
-		printf("%d ", arr[i]);
-	printf("\n");
+	cases = ft_getatomic_solutions(cases);
+	printf("cases = %p\n", cases);
+	ft_case_print(cases);
 	return (0);
 }

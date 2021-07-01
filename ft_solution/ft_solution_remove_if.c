@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_path_removeback.c                               :+:      :+:    :+:   */
+/*   ft_solution_remove_if.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 11:31:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 18:13:01 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/01 13:00:51 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/01 13:07:10 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_path.h"
+#include "ft_solution.h"
 
-void	ft_path_removeback(t_path **tail)
+void	ft_solution_remove_if(t_solution **tail, int (*fun)(void *, void *), \
+		void *arg)
 {
-	t_path	*head;
+	t_solution	*head;
+	t_solution	*next;
+	t_solution	*previous;
 
-	if (!*tail)
-		return ;
 	head = *tail;
-	if (!head->next)
+	previous = 0;
+	while (head)
 	{
-		ft_path_del(head);
-		*tail = 0;
-		return ;
+		next = head->next;
+		if (fun(head, arg))
+		{
+			if (head == *tail)
+				*tail = next;
+			ft_solution_del(head);
+			if (previous)
+				previous->next = next;
+		}
+		else
+			previous = head;
+		head = next;
 	}
-	while (head->next->next)
-		head = head->next;
-	ft_path_del(head->next);
-	head->next = 0;
 }

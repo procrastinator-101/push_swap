@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/30 18:18:00 by yarroubi          #+#    #+#              #
-#    Updated: 2021/07/01 11:35:26 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/07/01 18:33:02 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@
 AUTHOR = younes
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 CHECKER = checker
 PUSH_SWAP = push_swap
@@ -74,7 +74,9 @@ FT_SOLUTION_SRC = $(FT_SOLUTION_PATH)/ft_solution_addback.c \
 				  $(FT_SOLUTION_PATH)/ft_solution_clear.c \
 				  $(FT_SOLUTION_PATH)/ft_solution_create.c \
 				  $(FT_SOLUTION_PATH)/ft_solution_del.c \
-				  $(FT_SOLUTION_PATH)/ft_solution_print.c
+				  $(FT_SOLUTION_PATH)/ft_solution_islonger.c \
+				  $(FT_SOLUTION_PATH)/ft_solution_print.c \
+				  $(FT_SOLUTION_PATH)/ft_solution_remove_if.c
 
 FT_PATH_SRC = $(FT_PATH_PATH)/ft_getcandidate.c \
 			  $(FT_PATH_PATH)/ft_path_addback.c \
@@ -107,14 +109,18 @@ FT_CHECKER_SRC = $(FT_CHECKER_PATH)/checker.c \
 				 $(FT_CHECKER_PATH)/parser.c
 
 FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_arr_to_stack.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_backtrack_atomic_case.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_construct_cases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_generate_permutations.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_getatomic_solutions.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_getncases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_getsequence.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_initialise_cases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_median.c \
-				   $(FT_PUSH_SWAP_PATH)/ft_test_path.c
-				   #$(FT_PUSH_SWAP_PATH)/ft_push_swap.c
+				   $(FT_PUSH_SWAP_PATH)/ft_solve_atomic_case.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_push_swap.c
+				   #$(FT_PUSH_SWAP_PATH)/ft_test_path.c
 
 FT_ERRORS_SRC = $(FT_ERRORS_PATH)/ft_manage_execution_error.c \
 				$(FT_ERRORS_PATH)/ft_manage_parsing_error.c

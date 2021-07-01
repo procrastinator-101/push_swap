@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 11:23:28 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 11:23:30 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/01 15:12:00 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_case	*ft_getatomic_solutions(t_case *cases)
 	head = cases;
 	while (head)
 	{
-		ret = ft_solve_atomic_case(head);
-		if (ret)
+		head->solutions = ft_solve_atomic_case(head);
+		if (!head->solutions)
 		{
 			ft_case_clear(&cases);
 			return (0);

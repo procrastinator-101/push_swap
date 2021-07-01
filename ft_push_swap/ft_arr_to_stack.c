@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_solve_atomic_case.c                             :+:      :+:    :+:   */
+/*   ft_arr_to_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 09:55:48 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 18:16:15 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/01 13:47:09 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/01 14:25:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_solution	*ft_solve_atomic_case(t_case *node)
+t_stack	*ft_arr_to_stack(int *arr, int size)
 {
-	int			max_depth;
-	t_stack		*stack;
-	t_solution	*ret;
+	int		i;
+	int		error;
+	t_stack	*stack;
 
-	max_depth = MAX_DEPTH;
-	stack = ft_arr_to_stack(node->arr, node->size);
+	stack = ft_construct_stack();
 	if (!stack)
 		return (0);
-	for (int i = 0; i < node->size; i++)
-		printf("%d ", node->arr[i]);
-	printf("\n");
-	printf("enter\n");
-	ret = ft_backtrack_atomic_case(stack, 0, 0, &max_depth);
-	ft_solution_print(ret);
-	printf("leave\n");
-	ft_destroy_stack(&stack);
-	return (ret);
+	i = -1;
+	while (++i < size)
+	{
+		error = ft_push(stack, arr[i]);
+		if (error)
+			return (0);
+	}
+	return (stack);
 }
