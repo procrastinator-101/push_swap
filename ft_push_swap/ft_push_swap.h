@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:47:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 15:10:41 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/02 19:53:56 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ t_case		*ft_getatomic_solutions(t_case *cases);
 int			*ft_getsequence(int *arr, int size);
 int			ft_median(int *arr, int size, int *error);
 
-t_solution	*ft_solve_atomic_case(t_case *node);
-t_solution	*ft_backtrack_atomic_case(t_stack *src, t_path *path, int depth, \
-			int *max_depth);
+int			ft_solve_atomic_case(t_case *node);
+int			ft_backtrack_atomic_case(t_stack *src, t_path *path, t_case *state, \
+			int depth);
 
 t_stack		*ft_arr_to_stack(int *arr, int size);
 

@@ -3,29 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/06/30 18:18:00 by yarroubi          #+#    #+#              #
-#    Updated: 2021/07/01 19:40:21 by yarroubi         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/06/30 18:16:06 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/07/02 20:02:45 by youness          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 AUTHOR = younes
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 
 CHECKER = checker
 PUSH_SWAP = push_swap
@@ -63,6 +51,7 @@ FT_STACK_SRC = $(FT_STACK_PATH)/ft_construct_stack.c \
 			   $(FT_STACK_PATH)/ft_swap_stack.c
 
 FT_CASE_SRC = $(FT_CASE_PATH)/ft_case_addback.c \
+			  $(FT_CASE_PATH)/ft_case_addsolution.c \
 			  $(FT_CASE_PATH)/ft_case_addfront.c \
 			  $(FT_CASE_PATH)/ft_case_clear.c \
 			  $(FT_CASE_PATH)/ft_case_create.c \
@@ -109,12 +98,12 @@ FT_CHECKER_SRC = $(FT_CHECKER_PATH)/checker.c \
 
 FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_arr_to_stack.c \
-				   $(FT_PUSH_SWAP_PATH)/ft_backtrack_atomic_case.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_construct_cases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_generate_permutations.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_getatomic_solutions.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_getncases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_getsequence.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_home.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_initialise_cases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_median.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_solve_atomic_case.c \

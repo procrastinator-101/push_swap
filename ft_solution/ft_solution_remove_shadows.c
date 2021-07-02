@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 19:36:50 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 19:39:17 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/02 20:15:50 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_solution_remove_shadows(t_solution **tail, int nb_steps)
 	while (head)
 	{
 		next = head->next;
-		if (head->nb_steps > nb_steps && !head->path)
+		if (head->nb_steps > nb_steps || !head->path)
 		{
 			if (head == *tail)
 				*tail = next;

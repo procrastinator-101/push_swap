@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 18:11:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 19:48:44 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/02 20:23:59 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	ft_case_print(t_case *tail)
 			if (i < head->size - 1)
 				printf(" ");
 		}
-		printf("\n");
+		printf("\nmax_pathsteps : %d\n", head->max_pathsteps);
 		ft_solution_print(head->solutions);
 		head = head->next;
-		printf("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII\n");
+		printf("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII\n\n");
 	}
 }
