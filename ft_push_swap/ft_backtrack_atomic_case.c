@@ -5,19 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/01 09:57:20 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 20:00:55 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/05 09:11:31 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/05 09:34:30 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-static t_solution	*ft_clean_residus(t_path *path, t_solution *solution)
-{
-	ft_path_clear(&path);
-	ft_solution_clear(&solution);
-	return (0);
-}
 
 static char	*ft_getinstruction(int index)
 {
@@ -43,61 +36,69 @@ static t_stack	*ft_prepare_stack(t_stack *src, char *instruction)
 	return (0);
 }
 
-static t_solution	*ft_backtrack_step(t_stack *src, t_path *path, int depth, \
-					int *max_depth)
+static int	ft_backtrack_step(t_stack *src, t_path *path, t_case *state, \
+			int depth)
 {
 	int			i;
+	int			error;
 	t_stack		*tmp;
-	t_solution	*ret;
-	t_solution	*solution;
 
 	i = -1;
-	ret = 0;
 	while (++i < NB_INTRUCTIONS)
 	{
 		ft_path_pushback(&path, ft_getinstruction(i));
 		if (!path)
-			return (0);
+			return (EMAF);
 		tmp = ft_prepare_stack(src, ft_getinstruction(i));
 		if (!tmp)
-			return (ft_clean_residus(path, ret));
-		solution = ft_backtrack_atomic_case(tmp, path, depth + 1, max_depth);
-		ft_destroy_stack(&tmp);
-		if (!solution)
-			return (ft_clean_residus(0, ret));
-		if (solution->path)
 		{
-			ft_solution_addback(&ret, solution);
-			ft_solution_remove_shadows(&ret, solution->nb_steps);
+			ft_path_clear(&path);
+			return (EMAF);
 		}
-		else if (!ret)
-			ft_solution_addback(&ret, solution);
-		else
-			ft_solution_del(solution);
+		error = ft_backtrack_atomic_case(tmp, path, state, depth + 1);
+		ft_destroy_stack(&tmp);
+		if (error)
+			return (EMAF);
 		ft_path_removeback(&path);
 	}
-	return (ret);
+	return (0);
 }
 
-t_solution	*ft_backtrack_atomic_case(t_stack *src, t_path *path, int depth, \
-			int *max_depth)
+static int	ft_append_path(t_path *path, t_case *state)
 {
-	t_path	*new_path;
+	t_path		*new_path;
+	t_solution	*solution;
 
-	if (ft_is_stack_sorted(src, ASCENDANT) || depth >= *max_depth)
+	if (!path)
 	{
-		new_path = 0;
-		if (depth < *max_depth && path)
-		{
-			*max_depth = depth;
-			new_path = ft_path_clone(path);
-			if (!new_path)
-			{
-				ft_path_clear(&path);
-				return (0);
-			}
-		}
-		return (ft_solution_create(new_path));
+		ft_case_addsolution(state, 0);
+		return (0);
 	}
-	return (ft_backtrack_step(src, path, depth, max_depth));
+	new_path = ft_path_clone(path);
+	if (!new_path)
+	{
+		ft_path_clear(&path);
+		return (EMAF);
+	}
+	solution = ft_solution_create(new_path);
+	if (!solution)
+	{
+		ft_path_clear(&path);
+		ft_path_clear(&new_path);
+		return (EMAF);
+	}
+	ft_case_addsolution(state, solution);
+	return (0);
+}
+
+int	ft_backtrack_atomic_case(t_stack *src, t_path *path, t_case *state, \
+	int depth)
+{
+	if (depth > state->max_pathsteps)
+		return (0);
+	if (ft_is_stack_sorted(src, ASCENDANT))
+		return (ft_append_path(path, state));
+	if (depth == state->max_pathsteps)
+		return (0);
+	return (ft_backtrack_step(src, path, state, depth));
 }

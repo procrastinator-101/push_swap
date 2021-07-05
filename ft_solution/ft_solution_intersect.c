@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getncases.c                                     :+:      :+:    :+:   */
+/*   ft_solution_intersect.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 18:47:27 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/05 13:52:45 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/05 09:51:06 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/05 12:14:35 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "ft_solution.h"
 
-t_case	*ft_getncases(int n)
+t_solution	*ft_solution_intersect(t_solution *s1, t_solution *s2)
 {
-	int		i;
-	int		*arr;
-	t_list	*permutations;
+	t_solution	*ret;
+	t_solution	*tmp;
 
-	arr = malloc(n * sizeof(int));
-	if (!arr)
-		return (0);
-	i = -1;
-	while (++i < n)
-		arr[i] = i;
-	permutations = ft_generate_permutations(arr, n);
-	free(arr);
-	if (!permutations)
-		return (0);
-	return (ft_construct_cases(permutations, n));
+	ret = 0;
+	while (s1)
+	{
+		tmp = ft_solution_intersect_path(s2, s1->path);
+		if (!tmp)
+		{
+			ft_solution_del(ret);
+			return (0);
+		}
+		if (!ret || tmp->nb_steps < ret->nb_steps)
+		{
+			ft_solution_del(ret);
+			ret = tmp;
+		}
+		s1 = s1->next;
+	}
+	return (ret);
 }
