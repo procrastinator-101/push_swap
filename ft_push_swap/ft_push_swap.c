@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:42:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/05 14:05:04 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/06 18:35:45 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ int	main(int argc, char **argv)
 			solution = ft_solution_intersect(head1->solutions, head2->solutions);
 			ft_solution_print(solution);
 			ft_solution_del(solution);
+			break ;
 			head2 = head2->next;
 		}
+		break ;
 		head1 = head1->next;
 	}
 	while (1);

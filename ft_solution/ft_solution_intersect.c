@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 09:51:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/05 12:14:35 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/06 18:35:23 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ t_solution	*ft_solution_intersect(t_solution *s1, t_solution *s2)
 			ft_solution_del(ret);
 			ret = tmp;
 		}
+		else
+			ft_solution_del(tmp);
 		s1 = s1->next;
 	}
 	return (ret);

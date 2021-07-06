@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 11:02:24 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/05 12:29:08 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/06 18:34:28 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static t_solution	*ft_update_ret(t_solution *ret, t_path *p1, t_path *p2)
 			return (0);
 		}
 	}
+	else
+		ft_path_clear(&tmp);
 	return (ret);
 }
 
