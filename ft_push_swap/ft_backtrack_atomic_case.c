@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 09:11:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/05 09:34:30 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/07 21:25:54 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ static t_stack	*ft_prepare_stack(t_stack *src, char *instruction)
 	int		error;
 	t_stack	*ret;
 
-	ret = ft_duplicate_stack(src);
+	ret = ft_stack_clone(src);
 	if (!ret)
 		return (0);
 	error = ft_execute_intruction(instruction, ret, 0);
 	if (!error)
 		return (ret);
-	ft_destroy_stack(&ret);
+	ft_stack_clear(&ret);
 	return (0);
 }
 
@@ -56,7 +56,7 @@ static int	ft_backtrack_step(t_stack *src, t_path *path, t_case *state, \
 			return (EMAF);
 		}
 		error = ft_backtrack_atomic_case(tmp, path, state, depth + 1);
-		ft_destroy_stack(&tmp);
+		ft_stack_clear(&tmp);
 		if (error)
 			return (EMAF);
 		ft_path_removeback(&path);
@@ -96,7 +96,7 @@ int	ft_backtrack_atomic_case(t_stack *src, t_path *path, t_case *state, \
 {
 	if (depth > state->max_pathsteps)
 		return (0);
-	if (ft_is_stack_sorted(src, ASCENDANT))
+	if (ft_stack_issorted(src, ASCENDANT))
 		return (ft_append_path(path, state));
 	if (depth == state->max_pathsteps)
 		return (0);

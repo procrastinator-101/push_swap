@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap_stack.c                                    :+:      :+:    :+:   */
+/*   ft_stack_reverse_rotate.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/20 00:10:35 by youness           #+#    #+#             */
-/*   Updated: 2021/05/02 15:48:58 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/07 20:59:27 by youness           #+#    #+#             */
+/*   Updated: 2021/07/07 20:59:59 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	ft_swap_stack(t_stack *stack)
+void	ft_stack_reverse_rotate(t_stack *stack)
 {
+	int	i;
 	int	tmp;
 
-	if (stack->size < 2)
+	if (!stack->end)
 		return ;
-	tmp = stack->content[stack->size - 1];
-	stack->content[stack->size - 1] = stack->content[stack->size - 2];
-	stack->content[stack->size - 2] = tmp;
+	tmp = stack->data[0];
+	i = -1;
+	while (++i < stack->end - 1)
+		stack->data[i] = stack->data[i + 1];
+	stack->data[stack->end - 1] = tmp;
 }

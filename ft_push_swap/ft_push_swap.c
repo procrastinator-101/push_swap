@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:42:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/07 19:38:53 by youness          ###   ########.fr       */
+/*   Updated: 2021/07/07 21:27:15 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	main(int argc, char **argv)
 	//t_solution	*solution;
 
 	
-	a = ft_construct_stack();
-	b = ft_construct_stack();
+	a = ft_stack_create();
+	b = ft_stack_create();
 	ft_parse_arguments(a, 1, argc, argv);
-	ft_print_stack(a);
+	ft_stack_print(a);
 	cases = ft_initialise_cases();
 	if (!cases)
 		ft_manage_execution_error(a, b, EMAF);

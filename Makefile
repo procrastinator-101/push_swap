@@ -6,14 +6,14 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/07/05 11:35:08 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/07/07 21:42:15 by youness          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 AUTHOR = younes
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 CHECKER = checker
 PUSH_SWAP = push_swap
@@ -38,17 +38,17 @@ LIBFT = $(LIBFT_PATH)/libft.a
 
 LIB = $(LIBFT)
 
-FT_STACK_SRC = $(FT_STACK_PATH)/ft_construct_stack.c \
-			   $(FT_STACK_PATH)/ft_destroy_stack.c \
-			   $(FT_STACK_PATH)/ft_duplicate_stack.c \
-			   $(FT_STACK_PATH)/ft_empty_stack.c \
-			   $(FT_STACK_PATH)/ft_is_stack_sorted.c \
-			   $(FT_STACK_PATH)/ft_pop.c \
-			   $(FT_STACK_PATH)/ft_print_stack.c \
-			   $(FT_STACK_PATH)/ft_push.c \
-			   $(FT_STACK_PATH)/ft_reverse_rotate_stack.c \
-			   $(FT_STACK_PATH)/ft_rotate_stack.c \
-			   $(FT_STACK_PATH)/ft_swap_stack.c
+FT_STACK_SRC = $(FT_STACK_PATH)/ft_stack_clear.c \
+			   $(FT_STACK_PATH)/ft_stack_clone.c \
+			   $(FT_STACK_PATH)/ft_stack_create.c \
+			   $(FT_STACK_PATH)/ft_stack_empty.c \
+			   $(FT_STACK_PATH)/ft_stack_issorted.c \
+			   $(FT_STACK_PATH)/ft_stack_pop.c \
+			   $(FT_STACK_PATH)/ft_stack_print.c \
+			   $(FT_STACK_PATH)/ft_stack_push.c \
+			   $(FT_STACK_PATH)/ft_stack_reverse_rotate.c \
+			   $(FT_STACK_PATH)/ft_stack_rotate.c \
+			   $(FT_STACK_PATH)/ft_stack_swap.c
 
 FT_CASE_SRC = $(FT_CASE_PATH)/ft_case_addback.c \
 			  $(FT_CASE_PATH)/ft_case_addsolution.c \

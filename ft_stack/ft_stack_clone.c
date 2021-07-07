@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pop.c                                           :+:      :+:    :+:   */
+/*   ft_stack_clone.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/19 22:52:00 by youness           #+#    #+#             */
-/*   Updated: 2021/05/02 15:47:55 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/07 20:51:35 by youness           #+#    #+#             */
+/*   Updated: 2021/07/07 20:54:07 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-int	ft_pop(t_stack *stack)
+t_stack	*ft_stack_clone(t_stack *src)
 {
-	int	ret;
+	int		i;
+	int		ret;
+	t_stack	*dst;
 
-	ret = stack->content[stack->size - 1];
-	stack->size--;
-	if (!stack->size)
+	dst = ft_stack_create();
+	if (!dst)
+		return (0);
+	i = -1;
+	while (++i < src->end)
 	{
-		free(stack->content);
-		stack->content = 0;
+		ret = ft_stack_push(dst, src->data[i]);
+		if (ret)
+			return (0);
 	}
-	return (ret);
+	return (dst);
 }

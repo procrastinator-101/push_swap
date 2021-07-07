@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 17:54:42 by youness           #+#    #+#             */
-/*   Updated: 2021/06/23 15:22:24 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/07 21:29:21 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int	ft_check_duplicate(t_stack *a, int num)
 	int	i;
 
 	i = 0;
-	while (i < a->size && a->content[i] != num)
+	while (i < a->end && a->data[i] != num)
 		i++;
-	if (i < a->size)
+	if (i < a->end)
 		return (1);
 	return (0);
 }
@@ -43,8 +43,8 @@ void	ft_parse_arguments(t_stack *stack, int argb, int argc, char **argv)
 				ft_manage_parsing_error(stack, error);
 			if (ft_check_duplicate(stack, num))
 				ft_manage_parsing_error(stack, EDUP);
-			ft_push(stack, num);
-			ft_rotate_stack(stack);
+			ft_stack_push(stack, num);
+			ft_stack_rotate(stack);
 			start += len;
 		}
 	}

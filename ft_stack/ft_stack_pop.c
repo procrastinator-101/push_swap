@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_stack.c                                   :+:      :+:    :+:   */
+/*   ft_stack_pop.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/20 00:32:13 by youness           #+#    #+#             */
-/*   Updated: 2021/05/02 15:48:26 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/07 20:49:02 by youness           #+#    #+#             */
+/*   Updated: 2021/07/07 21:37:44 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	ft_print_stack(t_stack *stack)
+int	ft_stack_pop(t_stack *stack)
 {
-	int	i;
+	int	ret;
 
-	printf("------------------------------------------------------------\n");
-	i = stack->size;
-	while (i--)
-		printf("%d\n", stack->content[i]);
-	printf("------------------------------------------------------------\n");
+	ret = stack->data[stack->end--];
+	if (!stack->end)
+	{
+		free(stack->data);
+		stack->data = 0;
+		stack->size = 0;
+	}
+	return (ret);
 }

@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_duplicate_stack.c                               :+:      :+:    :+:   */
+/*   ft_stack_create.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/02 15:36:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/05 20:55:20 by youness          ###   ########.fr       */
+/*   Created: 2021/07/07 20:37:04 by youness           #+#    #+#             */
+/*   Updated: 2021/07/07 20:38:31 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-t_stack	*ft_duplicate_stack(t_stack *src)
+t_stack	*ft_stack_create(void)
 {
-	int		i;
-	int		ret;
-	t_stack	*dst;
+	t_stack	*stack;
 
-	dst = ft_construct_stack();
-	if (!dst)
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
 		return (0);
-	i = -1;
-	while (++i < src->size)
-	{
-		ret = ft_push(dst, src->content[i]);
-		if (ret)
-		{
-			free(dst);
-			return (0);
-		}
-	}
-	return (dst);
+	stack->data = malloc(MIN_STACK_SIZE * sizeof(int));
+	stack->size = MIN_STACK_SIZE;
+	stack->end = 0;
+	return (stack);
 }

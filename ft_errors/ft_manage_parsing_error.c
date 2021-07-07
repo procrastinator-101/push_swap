@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:36:48 by youness           #+#    #+#             */
-/*   Updated: 2021/06/23 15:08:15 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/07 21:40:05 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_manage_parsing_error(t_stack *stack, int error)
 {
 	ft_putstr_fd("error\n", 2);
-	ft_destroy_stack(&stack);
+	ft_stack_clear(&stack);
 	if (error == EDUP)
 		ft_putstr_fd("duplicates detected\n", 2);
 	else if (error == EIOF)

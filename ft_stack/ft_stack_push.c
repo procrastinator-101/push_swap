@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_destroy_stack.c                                 :+:      :+:    :+:   */
+/*   ft_stack_push.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/20 00:28:23 by youness           #+#    #+#             */
-/*   Updated: 2021/05/05 17:39:51 by youness          ###   ########.fr       */
+/*   Created: 2021/07/07 20:43:37 by youness           #+#    #+#             */
+/*   Updated: 2021/07/07 20:48:35 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	ft_destroy_stack(t_stack **stack)
+int	ft_stack_push(t_stack *stack, int value)
 {
-	if (!*stack)
-		return ;
-	free((*stack)->content);
-	free(*stack);
-	*stack = 0;
+	int	*ptr;
+
+	if (stack->end >= stack->size)
+	{
+		stack->size *= 2;
+		ptr = malloc(stack->size * sizeof(int));
+		if (!ptr)
+		{
+			ft_stack_clear(&stack);
+			return (1);
+		}
+		ft_memcpy(ptr, stack->data, stack->size * sizeof(int));
+		free(stack->data);
+		stack->data = ptr;
+	}
+	stack->data[stack->end++] = value;
+	return (0);
 }

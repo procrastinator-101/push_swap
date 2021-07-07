@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_empty_stack.c                                   :+:      :+:    :+:   */
+/*   ft_stack_swap.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/02 15:49:08 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/05/05 17:42:20 by youness          ###   ########.fr       */
+/*   Created: 2021/07/07 20:54:51 by youness           #+#    #+#             */
+/*   Updated: 2021/07/07 21:38:27 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	ft_empty_stack(t_stack *stack)
+void	ft_stack_swap(t_stack *stack)
 {
-	free(stack->content);
-	stack->content = 0;
-	stack->size = 0;
+	if (stack->end < 2)
+		return ;
+	ft_iswap(stack->data + stack->end, stack->data + stack->end - 1);
 }

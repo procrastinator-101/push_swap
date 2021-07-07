@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_stack_sorted.c                               :+:      :+:    :+:   */
+/*   ft_stack_empty.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/20 00:56:05 by youness           #+#    #+#             */
-/*   Updated: 2021/05/02 15:47:26 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/07 20:42:00 by youness           #+#    #+#             */
+/*   Updated: 2021/07/07 20:43:05 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-int	ft_is_stack_sorted(t_stack *stack, int order)
+void	ft_stack_empty(t_stack *stack)
 {
-	int	i;
-
-	i = -1;
-	if (order == DESCENDANT)
-	{
-		while (++i < stack->size - 1)
-		{
-			if (stack->content[i] >= stack->content[i + 1])
-				return (0);
-		}
-	}
-	else
-	{
-		while (++i < stack->size - 1)
-		{
-			if (stack->content[i] <= stack->content[i + 1])
-				return (0);
-		}
-	}
-	return (1);
+	free(stack->data);
+	stack->end = 0;
+	stack->data = 0;
+	stack->size = 0;
 }

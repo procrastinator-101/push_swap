@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_stack_clear.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/19 22:52:14 by youness           #+#    #+#             */
-/*   Updated: 2021/05/02 15:48:06 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/07 20:39:52 by youness           #+#    #+#             */
+/*   Updated: 2021/07/07 20:40:05 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-int	ft_push(t_stack *stack, int value)
+void	ft_stack_clear(t_stack **stack)
 {
-	int	i;
-	int	*ptr;
-
-	if (stack->size % MIN_STACK_SIZE)
-		stack->content[stack->size] = value;
-	else
-	{
-		ptr = malloc((stack->size + MIN_STACK_SIZE) * sizeof(int));
-		if (!ptr)
-		{
-			free(stack->content);
-			return (-1);
-		}
-		i = -1;
-		while (++i < stack->size)
-			ptr[i] = stack->content[i];
-		ptr[i] = value;
-		free(stack->content);
-		stack->content = ptr;
-	}
-	stack->size++;
-	return (0);
+	if (!*stack)
+		return ;
+	free((*stack)->data);
+	free(*stack);
+	*stack = 0;
 }

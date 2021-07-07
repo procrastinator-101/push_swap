@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 09:55:48 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/07 19:46:42 by youness          ###   ########.fr       */
+/*   Updated: 2021/07/07 21:26:21 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	ft_solve_atomic_case(t_case *node)
 	if (!stack)
 		return (0);
 	ret = ft_backtrack_atomic_case(stack, 0, node, 0);
-	ft_destroy_stack(&stack);
+	ft_stack_clear(&stack);
 	return (ret);
 }

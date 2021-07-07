@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 20:43:45 by youness           #+#    #+#             */
-/*   Updated: 2021/04/06 18:05:42 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/07 21:29:54 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void	ft_verbose(t_stack *a, t_stack *b, char *instruction)
 		printf("Exec %s:\n", instruction);
 	else
 		printf("Init a and b:\n");
-	i = a->size - 1;
-	j = b->size - 1;
+	i = a->end - 1;
+	j = b->end - 1;
 	while (i >= 0 || j >= 0)
 	{
 		if (i >= 0)
-			printf("%-11d", a->content[i]);
+			printf("%-11d", a->data[i]);
 		else
 			printf("           ");
 		if (j >= 0)
-			printf("%d", b->content[j]);
+			printf("%d", b->data[j]);
 		printf("\n");
 		i--;
 		j--;
