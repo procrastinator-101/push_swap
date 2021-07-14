@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:47:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/02 19:53:56 by youness          ###   ########.fr       */
+/*   Updated: 2021/07/14 17:53:12 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int			ft_backtrack_atomic_case(t_stack *src, t_path *path, t_case *state, \
 			int depth);
 
 t_stack		*ft_arr_to_stack(int *arr, int size);
+
+void		ft_printsolutions_intersections(t_case *cases);
 
 #endif

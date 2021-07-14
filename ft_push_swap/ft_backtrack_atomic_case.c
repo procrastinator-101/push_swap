@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 09:11:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/07 21:25:54 by youness          ###   ########.fr       */
+/*   Updated: 2021/07/14 18:12:58 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	ft_backtrack_atomic_case(t_stack *src, t_path *path, t_case *state, \
 {
 	if (depth > state->max_pathsteps)
 		return (0);
-	if (ft_stack_issorted(src, ASCENDANT))
+	if (ft_stack_issorted(src, state->order))
 		return (ft_append_path(path, state));
 	if (depth == state->max_pathsteps)
 		return (0);

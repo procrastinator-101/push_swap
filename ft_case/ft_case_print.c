@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 18:11:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/02 20:23:59 by youness          ###   ########.fr       */
+/*   Updated: 2021/07/14 18:36:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_case_print(t_case *tail)
 				printf(" ");
 		}
 		printf("\nmax_pathsteps : %d\n", head->max_pathsteps);
+		printf("order = %d\n", head->order);
 		ft_solution_print(head->solutions);
 		head = head->next;
 		printf("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII\n\n");

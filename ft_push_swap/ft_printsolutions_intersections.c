@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.c                                     :+:      :+:    :+:   */
+/*   ft_printsolutions_intersections.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/23 14:42:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/14 18:34:07 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/14 17:50:57 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/14 18:33:44 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_printsolutions_intersections(t_case *cases)
 {
-	t_case		*cases;
-	t_stack		*a;
-	t_stack		*b;
+	t_case		*head1;
+	t_case		*head2;
+	t_solution	*solution;
 
-	a = ft_stack_create();
-	b = ft_stack_create();
-	ft_parse_arguments(a, 1, argc, argv);
-	ft_stack_print(a);
-	cases = ft_initialise_cases();
-	if (!cases)
-		ft_manage_execution_error(a, b, EMAF);
-	cases = ft_getatomic_solutions(cases);
-	ft_printsolutions_intersections(cases);
-	ft_case_clear(&cases);
-	return (0);
+	head1 = cases;
+	while (head1)
+	{
+		head2 = cases;
+		while (head2)
+		{
+			solution = ft_solution_intersect(head1->solutions, \
+				head2->solutions);
+			ft_solution_print(solution);
+			ft_solution_del(solution);
+			head2 = head2->next;
+		}
+		head1 = head1->next;
+	}
 }

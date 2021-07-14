@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/07/07 21:42:15 by youness          ###   ########.fr        #
+#    Updated: 2021/07/14 17:54:00 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,6 +108,7 @@ FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_getsequence.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_initialise_cases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_median.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_printsolutions_intersections.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_solve_atomic_case.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_push_swap.c
 

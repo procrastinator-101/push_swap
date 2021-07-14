@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 17:54:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/02 19:57:22 by youness          ###   ########.fr       */
+/*   Updated: 2021/07/14 18:13:59 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_case
 	t_solution		*solutions;
 	struct s_case	*next;
 	int				size;
+	int				order;
 	int				max_pathsteps;
 }					t_case;
 
@@ -33,6 +34,7 @@ void				ft_case_clear(t_case **tail);
 void				ft_case_addback(t_case **tail, t_case *node);
 void				ft_case_addfront(t_case **tail, t_case *node);
 void				ft_case_addsolution(t_case *node, t_solution *solution);
-t_case				*ft_case_create(int *arr, int size, t_solution *solutions);
+t_case				*ft_case_create(int *arr, int size, t_solution *solutions, \
+					int order);
 
 #endif
