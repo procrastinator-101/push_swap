@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printsolutions_intersections.c                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/14 17:50:57 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 07:57:39 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/15 10:21:23 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/15 10:25:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+# include "ft_pair.h"
 
-void	ft_printsolutions_intersections(t_case *cases)
+int main()
 {
-	t_case		*head1;
-	t_case		*head2;
-	t_solution	*solution;
+	int *p = malloc(100);
+	int *p2 = malloc(200);
+	int *p3 = malloc(300);
 
-	head1 = cases;
-	while (head1)
-	{
-		head2 = cases;
-		while (head2)
-		{
-			solution = ft_solution_intersect(head1->solutions, \
-				head2->solutions);
-			ft_solution_print(solution);
-			ft_solution_del(solution);
-			head2 = head2->next;
-		}
-		head1 = head1->next;
-	}
+	printf("p = %p\n", p);
+	printf("p1 = %p\n", p2);
+	printf("p2 = %p\n", p3);
+	free(p);
+	free(p3);
+	printf("p = %p\n", p);
+	printf("p1 = %p\n", p2);
+	printf("p2 = %p\n", p3);
+	return (0);
 }

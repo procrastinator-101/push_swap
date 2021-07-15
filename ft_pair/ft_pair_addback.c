@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printsolutions_intersections.c                  :+:      :+:    :+:   */
+/*   ft_pair_addback.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/14 17:50:57 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 07:57:39 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/15 09:58:06 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/15 10:09:03 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+# include "ft_pair.h"
 
-void	ft_printsolutions_intersections(t_case *cases)
+void	ft_pair_addback(t_pair **tail, t_pair *node)
 {
-	t_case		*head1;
-	t_case		*head2;
-	t_solution	*solution;
+	t_pair	*head;
 
-	head1 = cases;
-	while (head1)
+	head = node;
+	if (!*tail)
+		*tail = node;
+	else
 	{
-		head2 = cases;
-		while (head2)
-		{
-			solution = ft_solution_intersect(head1->solutions, \
-				head2->solutions);
-			ft_solution_print(solution);
-			ft_solution_del(solution);
-			head2 = head2->next;
-		}
-		head1 = head1->next;
+		head = *tail;
+		while (head->next != *tail)
+			head = head->next;
+		head->next = node;
 	}
+	node->next = *tail;
+	node->previous = head;
 }

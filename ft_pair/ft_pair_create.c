@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printsolutions_intersections.c                  :+:      :+:    :+:   */
+/*   ft_pair_create.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/14 17:50:57 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 07:57:39 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/15 09:54:24 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/15 09:57:48 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+# include "ft_pair.h"
 
-void	ft_printsolutions_intersections(t_case *cases)
+t_pair	*ft_pair_create(int first, int second)
 {
-	t_case		*head1;
-	t_case		*head2;
-	t_solution	*solution;
+	t_pair	*pair;
 
-	head1 = cases;
-	while (head1)
-	{
-		head2 = cases;
-		while (head2)
-		{
-			solution = ft_solution_intersect(head1->solutions, \
-				head2->solutions);
-			ft_solution_print(solution);
-			ft_solution_del(solution);
-			head2 = head2->next;
-		}
-		head1 = head1->next;
-	}
+	pair = malloc(sizeof(t_pair));
+	if (!pair)
+		return (0);
+	pair->first = first;
+	pair->second = second;
+	pair->next = 0;
+	pair->previous = 0;
+	return (pair);
 }

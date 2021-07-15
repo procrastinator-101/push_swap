@@ -1,0 +1,20 @@
+sorting algo
+------------------------------------------------------------------------
+if (the upper chunk in A is smaller than 4 in size)
+{
+	if (the upper chunk in B is smaller than 4 in size)
+	{
+		sort_by_atomic_solutions(a, b);
+		push everything from b to a;
+		return ;
+	}
+	subdivise b and push the the largest chunk to a
+}
+subdivise a and push the smallest chunk to b
+
+
+MEDIAN :
+	-	A	: stays
+	-	B	: leaves
+ 
+------------------------------------------------------------------------

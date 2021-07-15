@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printsolutions_intersections.c                  :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/14 17:50:57 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 07:57:39 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/15 07:57:47 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/15 08:27:28 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	ft_printsolutions_intersections(t_case *cases)
+int	ft_sort(t_pair *a, t_pair *b, t_case *atomics)
 {
-	t_case		*head1;
-	t_case		*head2;
-	t_solution	*solution;
-
-	head1 = cases;
-	while (head1)
+	if (a->master.end >= MAX_SORT_SIZE)
 	{
-		head2 = cases;
-		while (head2)
-		{
-			solution = ft_solution_intersect(head1->solutions, \
-				head2->solutions);
-			ft_solution_print(solution);
-			ft_solution_del(solution);
-			head2 = head2->next;
-		}
-		head1 = head1->next;
+		
 	}
+
 }

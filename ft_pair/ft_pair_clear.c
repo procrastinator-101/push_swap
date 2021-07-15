@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printsolutions_intersections.c                  :+:      :+:    :+:   */
+/*   ft_pair_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/14 17:50:57 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 07:57:39 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/15 10:02:47 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/15 10:20:24 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+# include "ft_pair.h"
 
-void	ft_printsolutions_intersections(t_case *cases)
+void	ft_pair_clear(t_pair **tail)
 {
-	t_case		*head1;
-	t_case		*head2;
-	t_solution	*solution;
+	t_pair	*head;
+	t_pair	*next;
 
-	head1 = cases;
-	while (head1)
+	if (!*tail)
+		return ;
+	head = *tail;
+	while (head->next != *tail)
 	{
-		head2 = cases;
-		while (head2)
-		{
-			solution = ft_solution_intersect(head1->solutions, \
-				head2->solutions);
-			ft_solution_print(solution);
-			ft_solution_del(solution);
-			head2 = head2->next;
-		}
-		head1 = head1->next;
+		next = head->next;
+		ft_pair_del(head);
+		head = next;
 	}
+	ft_pair_del(head);
+	*tail = 0;
 }
