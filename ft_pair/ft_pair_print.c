@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pair_removeback.c                               :+:      :+:    :+:   */
+/*   ft_pair_print.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 09:59:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 10:38:19 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/15 10:31:58 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/15 10:38:12 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_pair.h"
 
-void	ft_pair_removeback(t_pair **tail)
+void	ft_pair_print(t_pair *tail)
 {
+	int		n;
 	t_pair	*head;
 
-	if (!*tail)
-		return ;
-	head = *tail;
-	if (!head->next)
+	head = tail;
+	while (head)
 	{
-		ft_pair_del(head);
-		*tail = 0;
-		return ;
-	}
-	while (head->next->next)
+		printf("-------------------------------------------------\n|");
+		n = 24 - printf("%d", head->first);
+		while (n--)
+			printf(" ");
+		n = 24 - printf("%d", head->second);
+		while (n--)
+			printf(" ");
+		printf("|\n-------------------------------------------------\n");
 		head = head->next;
-	ft_pair_del(head->next);
-	head->next = 0;
-	*tail->previous = head;
+	}
 }
