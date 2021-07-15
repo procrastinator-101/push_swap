@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:42:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/14 18:34:07 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/15 13:46:57 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	if (!cases)
 		ft_manage_execution_error(a, b, EMAF);
 	cases = ft_getatomic_solutions(cases);
-	ft_printsolutions_intersections(cases);
+	//ft_printsolutions_intersections(cases);
 	ft_case_clear(&cases);
 	return (0);
 }

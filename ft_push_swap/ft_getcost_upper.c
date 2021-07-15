@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chunkate.c                                      :+:      :+:    :+:   */
+/*   ft_getcost_upper.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 08:50:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 13:47:53 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/15 11:38:54 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/15 12:44:25 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_chunkate(t_container *a, t_container *b, char name)
+int	ft_getcost_upper(t_container *src, char name, int median)
 {
-	int			end;
-	int			start;
-	int			error;
-	int			median;
-	t_container	*src;
+	int		ret;
+	int		end;
+	int		half;
+	t_pair	*upper_chunk;
 
-	src = a;
-	if (name == 'b')
-		src = b;
-	start = src->chunks->previous->first;
-	end = src->chunks->previous->second;
-	median = ft_median(src->stack->data + start, end - start, &error);
-	if (error)
-		return (error);
-	return (ft_send_chunk(b, a, name, median));
+	ret = 0;
+	upper_chunk = src->chunks->previous;
+	end = upper_chunk->second;
+	half = upper_chunk->first + (end - upper_chunk->first) / 2;
+	while (end >= half)
+	{
+		if (ft_isforeign(src->stack->data[end], name, median))
+			ret = end;
+		end--;
+	}
+	return (upper_chunk->end - ret);
 }

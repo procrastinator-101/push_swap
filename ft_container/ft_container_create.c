@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pair_print.c                                    :+:      :+:    :+:   */
+/*   ft_container_create.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 10:31:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 10:50:47 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/15 10:56:25 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/15 13:31:38 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pair.h"
+#include "ft_container.h"
 
-void	ft_pair_print(t_pair *tail)
+t_container	*ft_container_create(t_stack *stack, t_pair *chunks)
 {
-	int		n;
-	t_pair	*head;
+	t_container	*container;
 
-	head = tail;
-	while (head)
+	container = malloc(sizeof(t_container));
+	if (!container)
+		return (0);
+	container->stack = stack;
+	container->chunks = chunks;
+	if (!chunks && stack)
 	{
-		printf("-------------------------------------------------\n|");
-		n = 24 - printf("%d", head->first);
-		while (n--)
-			printf(" ");
-		n = 24 - printf("%d", head->second);
-		while (n--)
-			printf(" ");
-		printf("|\n-------------------------------------------------\n");
-		head = head->next;
+		container->chunks = ft_pair_create(0, stack->end);
+		if (!container->chunks)
+		{
+			free(container);
+			return (0);
+		}
 	}
+	return (container);
 }

@@ -6,11 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 09:54:24 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 10:37:58 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/15 10:50:19 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_pair.h"
+#include "ft_pair.h"
 
 t_pair	*ft_pair_create(int first, int second)
 {

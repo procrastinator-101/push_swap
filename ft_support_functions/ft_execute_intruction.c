@@ -6,13 +6,13 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:22:00 by youness           #+#    #+#             */
-/*   Updated: 2021/07/07 21:28:07 by youness          ###   ########.fr       */
+/*   Updated: 2021/07/15 13:45:29 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_support_functions.h"
 
-static int	ft_execute_rotations(char *instruction, t_stack *a, t_stack *b)
+static int	ft_execute_rotations(t_stack *a, t_stack *b, char *instruction)
 {
 	if (!ft_strcmp(instruction, "ra"))
 		ft_stack_rotate(a);
@@ -37,7 +37,7 @@ static int	ft_execute_rotations(char *instruction, t_stack *a, t_stack *b)
 	return (0);
 }
 
-int	ft_execute_intruction(char *instruction, t_stack *a, t_stack *b)
+int	ft_execute_intruction(t_stack *a, t_stack *b, char *instruction)
 {
 	if (!ft_strcmp(instruction, "sa"))
 		ft_stack_swap(a);
@@ -59,6 +59,6 @@ int	ft_execute_intruction(char *instruction, t_stack *a, t_stack *b)
 			return (ft_stack_push(b, ft_stack_pop(a)));
 	}
 	else
-		return (ft_execute_rotations(instruction, a, b));
+		return (ft_execute_rotations(a, b, instruction));
 	return (0);
 }

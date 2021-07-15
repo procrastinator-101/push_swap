@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 09:11:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/14 18:12:58 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/15 13:43:39 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static t_stack	*ft_prepare_stack(t_stack *src, char *instruction)
 	ret = ft_stack_clone(src);
 	if (!ret)
 		return (0);
-	error = ft_execute_intruction(instruction, ret, 0);
+	error = ft_execute_intruction(ret, 0, instruction);
 	if (!error)
 		return (ret);
 	ft_stack_clear(&ret);

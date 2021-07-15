@@ -6,11 +6,11 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 09:59:58 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 10:38:19 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/15 11:09:40 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_pair.h"
+#include "ft_pair.h"
 
 void	ft_pair_removeback(t_pair **tail)
 {
@@ -29,5 +29,5 @@ void	ft_pair_removeback(t_pair **tail)
 		head = head->next;
 	ft_pair_del(head->next);
 	head->next = 0;
-	*tail->previous = head;
+	(*tail)->previous = head;
 }

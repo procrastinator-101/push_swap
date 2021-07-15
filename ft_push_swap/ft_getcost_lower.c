@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chunkate.c                                      :+:      :+:    :+:   */
+/*   ft_getcost_lower.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/15 08:50:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 13:47:53 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/15 12:04:55 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/15 12:44:01 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	ft_chunkate(t_container *a, t_container *b, char name)
+int	ft_getcost_lower(t_container *src, char name, int median)
 {
-	int			end;
-	int			start;
-	int			error;
-	int			median;
-	t_container	*src;
+	int		ret;
+	int		half;
+	int		start;
+	t_pair	*upper_chunk;
 
-	src = a;
-	if (name == 'b')
-		src = b;
-	start = src->chunks->previous->first;
-	end = src->chunks->previous->second;
-	median = ft_median(src->stack->data + start, end - start, &error);
-	if (error)
-		return (error);
-	return (ft_send_chunk(b, a, name, median));
+	ret = 0;
+	upper_chunk = src->chunks->previous;
+	start = upper_chunk->first;
+	half = start + (upper_chunk->second - start) / 2;
+	while (start < half)
+	{
+		if (ft_isforeign(src->stack->data[start], name, median))
+			ret = start;
+		start++;
+	}
+	if (upper_chunk->previous != upper_chunk)
+		ret *= 2;
+	return (ret);
 }
