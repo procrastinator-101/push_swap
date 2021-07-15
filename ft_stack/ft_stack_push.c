@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 20:43:37 by youness           #+#    #+#             */
-/*   Updated: 2021/07/07 20:48:35 by youness          ###   ########.fr       */
+/*   Updated: 2021/07/15 15:45:50 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_stack_push(t_stack *stack, int value)
 			ft_stack_clear(&stack);
 			return (1);
 		}
-		ft_memcpy(ptr, stack->data, stack->size * sizeof(int));
+		ft_memcpy(ptr, stack->data, stack->end * sizeof(int));
 		free(stack->data);
 		stack->data = ptr;
 	}

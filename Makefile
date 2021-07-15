@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/07/15 13:36:49 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/07/15 15:40:00 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 CHECKER = checker
 PUSH_SWAP = push_swap
 
-NAME = $(PUSH_SWAP)
+NAME = $(PUSH_SWAP) $(CHECKER)
 
 LIBFT_PATH = libft
 FT_PATH_PATH = ft_path
@@ -121,6 +121,7 @@ FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_getncases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_getsequence.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_initialise_cases.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_initialise_container.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_isforeign.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_median.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_printsolutions_intersections.c \

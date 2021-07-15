@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:47:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 13:36:52 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:32:25 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ int			ft_solve_atomic_case(t_case *node);
 int			ft_backtrack_atomic_case(t_stack *src, t_path *path, t_case *state, \
 			int depth);
 
+t_container	*ft_initialise_container(void);
+
 t_stack		*ft_arr_to_stack(int *arr, int size);
 
 void		ft_printsolutions_intersections(t_case *cases);
 
-int			ft_isforeign(int num, int median, char name);
+int			ft_isforeign(int num, char name, int median);
 int			ft_chunkate(t_container *a, t_container *b, char name);
 int			ft_send_chunk(t_container *src, t_container *dst, char name, int median);
 

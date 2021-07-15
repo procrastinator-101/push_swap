@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 09:54:24 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 10:50:19 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:12:41 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ t_pair	*ft_pair_create(int first, int second)
 	pair->first = first;
 	pair->second = second;
 	pair->next = 0;
-	pair->previous = 0;
+	pair->previous = pair;
 	return (pair);
 }
