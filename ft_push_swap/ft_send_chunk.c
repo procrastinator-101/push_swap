@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 11:33:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 16:05:24 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/17 10:47:01 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	ft_send_chunk(t_container *src, t_container *dst, char name, int median)
 {
 	int		ret;
 	int		end;
+	int		start;
 	int		middle_cost;
 	t_pair	*upper_chunk;
 
@@ -47,14 +48,14 @@ int	ft_send_chunk(t_container *src, t_container *dst, char name, int median)
 	middle_cost = 0;
 	upper_chunk = src->chunks->previous;
 	end = upper_chunk->second - 1;
-	printf("end = %d\n", end);
-	printf("start = %d\n", upper_chunk->first);
-	while (end >= upper_chunk->first)
+	start = upper_chunk->first;
+	while (end >= start)
 	{
 		if (ft_isforeign(src->stack->data[end], name, median))
 		{
-			printf("num = %d\n", src->stack->data[end]);
 			ft_manage_chunksending(src, dst, name, middle_cost);
+			end += middle_cost;
+			start += middle_cost;
 			ret += middle_cost;
 			middle_cost = 0;
 		}
@@ -62,10 +63,12 @@ int	ft_send_chunk(t_container *src, t_container *dst, char name, int median)
 			middle_cost++;
 		end--;
 	}
-	printf("ret = %d\n", ret);
-	if (name == 'a')
-		ret = ft_repeate_instruction(src->stack, dst->stack, ret, "rra");
-	else
-		ret = ft_repeate_instruction(dst->stack, src->stack, ret, "rrb");
+	if (src->chunks->next)
+	{
+		if (name == 'a')
+			ret = ft_repeate_instruction(src->stack, dst->stack, ret, "rra");
+		else
+			ret = ft_repeate_instruction(dst->stack, src->stack, ret, "rrb");
+	}
 	return (ret);
 }

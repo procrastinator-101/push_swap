@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_median.c                                        :+:      :+:    :+:   */
+/*   ft_container_push.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 19:30:46 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/17 10:29:32 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/17 10:06:57 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/17 10:41:48 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "ft_container.h"
 
-int	ft_median(int *arr, int size, int *error)
+int	ft_container_push(t_container *container, int value)
 {
 	int	ret;
-	int	*tmp;
 
-	*error = EMAF;
-	tmp = malloc(size * sizeof(int));
-	if (!tmp)
-		return (0);
-	*error = 0;
-	ft_memcpy(tmp, arr, size * sizeof(int));
-	ft_quick_sort(tmp, size);
-	ret = tmp[size / 2];
-	free(tmp);
-	return (ret);
+	ret = ft_stack_push(container->stack, value);
+	if (ret)
+		return (ret);
+	if (!container->chunks)
+		container->chunks = ft_pair_create(0, container->stack->end);
+	else
+		container->chunks->previous->second = container->stack->end;
+	if (!container->chunks)
+		return (EMAF);
+	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/07/15 15:40:00 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/07/17 11:31:46 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,6 +114,7 @@ FT_CHECKER_SRC = $(FT_CHECKER_PATH)/checker.c \
 FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_arr_to_stack.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_backtrack_atomic_case.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_backtrack_step.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_chunkate.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_construct_cases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_generate_permutations.c \

@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_median.c                                        :+:      :+:    :+:   */
+/*   ft_container_pop.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 19:30:46 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/17 10:29:32 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/07/17 10:18:23 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/07/17 10:41:51 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "ft_container.h"
 
-int	ft_median(int *arr, int size, int *error)
+int	ft_container_pop(t_container *container)
 {
 	int	ret;
-	int	*tmp;
 
-	*error = EMAF;
-	tmp = malloc(size * sizeof(int));
-	if (!tmp)
-		return (0);
-	*error = 0;
-	ft_memcpy(tmp, arr, size * sizeof(int));
-	ft_quick_sort(tmp, size);
-	ret = tmp[size / 2];
-	free(tmp);
-	return (ret);
+	ret = ft_stack_pop(container->stack);
+	if (!container->stack->end)
+		ft_
 }
