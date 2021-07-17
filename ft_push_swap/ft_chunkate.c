@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 08:50:16 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 16:05:27 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/17 16:09:26 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_chunkate(t_container *a, t_container *b, char name)
 	src = a;
 	if (name == 'b')
 		src = b;
-	if (!src->chunks)
+	if (!src->chunks || !src->stack->end)
 		return (-1);//use macro
 	start = src->chunks->previous->first;
 	end = src->chunks->previous->second;
