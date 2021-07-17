@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 17:50:57 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 07:57:39 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/17 13:11:21 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,13 @@ void	ft_printsolutions_intersections(t_case *cases)
 		{
 			solution = ft_solution_intersect(head1->solutions, \
 				head2->solutions);
+			printf("/////////////////////// operand1 ///////////////////////\n");
+			ft_solution_print(head1->solutions);
+			printf("/////////////////////// operand2 ///////////////////////\n");
+			ft_solution_print(head2->solutions);
+			printf("/////////////////////// result /////////////////////////\n");
 			ft_solution_print(solution);
+			printf("////////////////////////////////////////////////////////\n");
 			ft_solution_del(solution);
 			head2 = head2->next;
 		}

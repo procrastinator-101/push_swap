@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 09:51:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/06 18:35:23 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/17 13:14:55 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ t_solution	*ft_solution_intersect(t_solution *s1, t_solution *s2)
 	t_solution	*tmp;
 
 	ret = 0;
-	while (s1)
+	while (s2)
 	{
-		tmp = ft_solution_intersect_path(s2, s1->path);
+		tmp = ft_solution_intersect_path(s1, s2->path);
 		if (!tmp)
 		{
 			ft_solution_del(ret);
@@ -33,7 +33,7 @@ t_solution	*ft_solution_intersect(t_solution *s1, t_solution *s2)
 		}
 		else
 			ft_solution_del(tmp);
-		s1 = s1->next;
+		s2 = s2->next;
 	}
 	return (ret);
 }
