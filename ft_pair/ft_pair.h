@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 09:52:46 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 10:52:28 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/28 22:37:29 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_pair_print(t_pair *tail);
 void	ft_pair_clear(t_pair **tail);
 void	ft_pair_removeback(t_pair **tail);
 void	ft_pair_addback(t_pair **tail, t_pair *node);
+void	ft_pair_pushback(t_pair **pairs, int first, int second);
 
 t_pair	*ft_pair_create(int first, int second);
 

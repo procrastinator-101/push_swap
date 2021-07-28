@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/07/17 13:31:04 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/07/28 23:00:26 by youness          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ FT_CASE_SRC = $(FT_CASE_PATH)/ft_case_addback.c \
 			  $(FT_CASE_PATH)/ft_case_clear.c \
 			  $(FT_CASE_PATH)/ft_case_create.c \
 			  $(FT_CASE_PATH)/ft_case_del.c \
+			  $(FT_CASE_PATH)/ft_casefind_sequence.c \
 			  $(FT_CASE_PATH)/ft_case_print.c
 
 FT_SOLUTION_SRC = $(FT_SOLUTION_PATH)/ft_solution_addback.c \
@@ -94,11 +95,14 @@ FT_PAIR_SRC = $(FT_PAIR_PATH)/ft_pair_addback.c \
 			  $(FT_PAIR_PATH)/ft_pair_create.c \
 			  $(FT_PAIR_PATH)/ft_pair_del.c \
 			  $(FT_PAIR_PATH)/ft_pair_print.c \
+			  $(FT_PAIR_PATH)/ft_pair_pushback.c \
 			  $(FT_PAIR_PATH)/ft_pair_removeback.c
 
 FT_CONTAINER_SRC = $(FT_CONTAINER_PATH)/ft_container_create.c \
 				   $(FT_CONTAINER_PATH)/ft_container_del.c \
-				   $(FT_CONTAINER_PATH)/ft_container_print.c
+				   $(FT_CONTAINER_PATH)/ft_container_pop.c \
+				   $(FT_CONTAINER_PATH)/ft_container_print.c \
+				   $(FT_CONTAINER_PATH)/ft_container_push.c
 
 FT_SUPPORT_FUNCTIONS_SRC = $(FT_SUPPORT_FUNCTIONS_PATH)/ft_atoi_check_len.c \
 						   $(FT_SUPPORT_FUNCTIONS_PATH)/ft_execute_intruction.c \
@@ -126,10 +130,12 @@ FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_isforeign.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_median.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_printsolutions_intersections.c \
-				   $(FT_PUSH_SWAP_PATH)/ft_solve_atomic_case.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_push_swap.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_repeate_instruction.c \
-				   $(FT_PUSH_SWAP_PATH)/ft_send_chunk.c
+				   $(FT_PUSH_SWAP_PATH)/ft_send_chunk.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_solve_atomic_case.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_sort_by_atomics.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_sort.c
 
 FT_ERRORS_SRC = $(FT_ERRORS_PATH)/ft_manage_execution_error.c \
 				$(FT_ERRORS_PATH)/ft_manage_parsing_error.c

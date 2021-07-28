@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:47:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/17 11:31:08 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/28 22:47:50 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@
 # include "../ft_matrix/ft_matrix.h"
 # include "../ft_container/ft_container.h"
 
-# define NB_INTRUCTIONS		3
 # define MAX_DEPTH			8
+# define ATOMIC_SIZE		4
+# define NB_INTRUCTIONS		3
+
+int			ft_sort(t_container *a, t_container *b, t_case *atomics);
+int			ft_sort_by_atomics(t_container *a, t_container *b, t_case *atomics);
 
 int			ft_append_permutation(t_list **permutations, int *arr, int size);
 
@@ -37,6 +41,7 @@ t_case		*ft_getatomic_solutions(t_case *cases);
 
 int			*ft_getsequence(int *arr, int size);
 int			ft_median(int *arr, int size, int *error);
+t_stack		*ft_arr_to_stack(int *arr, int size);
 
 int			ft_solve_atomic_case(t_case *node);
 int			ft_backtrack_step(t_stack *src, t_path *path, t_case *state, int depth);
@@ -45,7 +50,6 @@ int			ft_backtrack_atomic_case(t_stack *src, t_path *path, t_case *state, \
 
 t_container	*ft_initialise_container(void);
 
-t_stack		*ft_arr_to_stack(int *arr, int size);
 
 void		ft_printsolutions_intersections(t_case *cases);
 

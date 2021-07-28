@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:42:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/17 13:24:23 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/28 22:59:05 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,22 @@ int	main(int argc, char **argv)
 	}
 	ft_parse_arguments(a->stack, 1, argc, argv);//check errors
 	a->chunks = ft_pair_create(0, a->stack->end);//to protect
-	ft_container_print(a);
 	cases = ft_initialise_cases();
 	if (!cases)
 		ft_manage_execution_error(0, 0, EMAF);//to update
 	cases = ft_getatomic_solutions(cases);
-	ft_printsolutions_intersections(cases);
+	ft_container_print(a);
+	ft_container_print(b);
+	ft_sort(a, b, cases);
+	ft_container_print(a);
+	ft_container_print(b);
+	/*
 	ft_chunkate(a, b, 'a');
 	printf("=================== A ==================\n");
 	ft_container_print(a);
 	printf("=================== B ==================\n");
 	ft_container_print(b);
+	*/
 	ft_container_del(a);
 	ft_container_del(b);
 	ft_case_clear(&cases);

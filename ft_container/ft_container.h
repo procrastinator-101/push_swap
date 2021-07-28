@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 10:53:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/15 11:09:08 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/28 22:28:39 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ typedef struct s_container
 
 void		ft_container_print(t_container *node);
 void		ft_container_del(t_container *node);
+
+int			ft_container_pop(t_container *container);
+int			ft_container_push(t_container *container, int value, int ischunk);
 
 t_container	*ft_container_create(t_stack *stack, t_pair *chunks);
 

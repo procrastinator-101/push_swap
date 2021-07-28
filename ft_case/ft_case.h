@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 17:54:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/17 11:10:00 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/28 21:44:07 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void				ft_case_addback(t_case **tail, t_case *node);
 void				ft_case_addfront(t_case **tail, t_case *node);
 void				ft_case_addsolution(t_case *node, t_solution *solution);
 t_case				*ft_case_create(int *arr, int size, t_solution *solutions, \
+					int order);
+t_case				*ft_casefind_sequence(t_case *cases, int *arr, int size, \
 					int order);
 
 #endif
