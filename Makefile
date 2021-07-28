@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/07/28 23:00:26 by youness          ###   ########.fr        #
+#    Updated: 2021/07/28 23:17:06 by youness          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -167,7 +167,7 @@ $(LIBFT) :
 	@$(MAKE) -C libft
 
 clean:
-	@rm -rf $(PUSH_SWAP_OBJ)
+	@rm -rf $(PUSH_SWAP_OBJ) $(CHECKER_OBJ)
 	@$(MAKE) -C libft fclean
 
 
