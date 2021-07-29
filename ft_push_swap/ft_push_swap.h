@@ -23,7 +23,7 @@
 # include "../ft_matrix/ft_matrix.h"
 # include "../ft_container/ft_container.h"
 
-# define MAX_DEPTH			8
+# define MAX_DEPTH			12
 # define ATOMIC_SIZE		4
 # define NB_INTRUCTIONS		3
 

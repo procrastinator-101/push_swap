@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 18:42:06 by youness           #+#    #+#             */
-/*   Updated: 2021/07/15 15:41:35 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/07/29 20:59:37 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	if (!b)
 		ft_manage_execution_error(a, b, EMAF);
 	ft_parse_arguments(a, 1, argc, argv);
-	ft_verbose(a, b, 0);
+	//ft_verbose(a, b, 0);
 	fd = 0;
 	parser(fd, a, b);
 	if (ft_stack_issorted(a, ASCENDANT) && !b->end)
