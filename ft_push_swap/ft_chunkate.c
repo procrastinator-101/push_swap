@@ -12,25 +12,19 @@
 
 #include "ft_push_swap.h"
 
-int	ft_chunkate(t_container *a, t_container *b, char name)
+int	ft_chunkate(t_container *src, t_container *dst)
 {
 	int			end;
 	int			start;
 	int			error;
 	int			median;
-	t_container	*src;
 
-	src = a;
-	if (name == 'b')
-		src = b;
 	if (!src->chunks || !src->stack->end)
-		return (-1);//use macro
+		return (EUCC);
 	start = src->chunks->previous->first;
 	end = src->chunks->previous->second;
 	median = ft_median(src->stack->data + start, end - start, &error);
 	if (error)
 		return (error);
-	if (name == 'a')
-		return (ft_send_chunk(a, b, name, median));
-	return (ft_send_chunk(b, a, name, median));
+	return (ft_send_chunk(src, dst, median));
 }

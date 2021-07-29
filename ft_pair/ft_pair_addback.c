@@ -27,4 +27,5 @@ void	ft_pair_addback(t_pair **tail, t_pair *node)
 		head->next = node;
 	}
 	node->previous = head;
+	(*tail)->previous = node;
 }

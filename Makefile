@@ -6,14 +6,14 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/07/28 23:17:06 by youness          ###   ########.fr        #
+#    Updated: 2021/07/29 17:43:17 by youness          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 AUTHOR = younes
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
 
 CHECKER = checker
 PUSH_SWAP = push_swap
@@ -80,6 +80,7 @@ FT_PATH_SRC = $(FT_PATH_PATH)/ft_getcandidate.c \
 			  $(FT_PATH_PATH)/ft_path_del.c \
 			  $(FT_PATH_PATH)/ft_path_getintersection_matrix.c \
 			  $(FT_PATH_PATH)/ft_path_intersect.c \
+			  $(FT_PATH_PATH)/ft_path_isportable.c \
 			  $(FT_PATH_PATH)/ft_path_print.c \
 			  $(FT_PATH_PATH)/ft_path_pushback.c \
 			  $(FT_PATH_PATH)/ft_path_removeback.c \

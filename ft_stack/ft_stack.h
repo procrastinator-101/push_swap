@@ -18,8 +18,8 @@
 
 # include "../libft/libft.h"
 
-# define ASCENDANT			0
-# define DESCENDANT			1
+# define ASCENDANT			0				//the top of the stack is the smallest
+# define DESCENDANT			1				//the top of the stack is the largest
 # define MIN_STACK_SIZE		100
 
 typedef struct s_stack

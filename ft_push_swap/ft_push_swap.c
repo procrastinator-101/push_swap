@@ -18,10 +18,10 @@ int	main(int argc, char **argv)
 	t_container	*a;
 	t_container	*b;
 
-	a = ft_initialise_container();
+	a = ft_initialise_container('a');
 	if (!a)
 		ft_manage_execution_error(0, 0, EMAF);//to update
-	b = ft_initialise_container();
+	b = ft_initialise_container('b');
 	if (!b)
 	{
 		ft_container_del(a);
@@ -33,11 +33,23 @@ int	main(int argc, char **argv)
 	if (!cases)
 		ft_manage_execution_error(0, 0, EMAF);//to update
 	cases = ft_getatomic_solutions(cases);
+	ft_case_print(cases);
+	int sizes[5];
+	ft_bzero(sizes, 4 * sizeof(int));
+	for (t_case *head = cases; head; head = head->next)
+	{
+		if (head->max_pathsteps > sizes[head->size])
+			sizes[head->size] = head->max_pathsteps;
+	}
+	for (int i = 0; i < 5; i++)
+		printf("sizes[%d] = %d\n", i, sizes[i]);
+	/*
 	ft_container_print(a);
 	ft_container_print(b);
 	ft_sort(a, b, cases);
 	ft_container_print(a);
 	ft_container_print(b);
+	*/
 	/*
 	ft_chunkate(a, b, 'a');
 	printf("=================== A ==================\n");

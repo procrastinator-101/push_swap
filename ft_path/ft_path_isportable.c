@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_print.c                                   :+:      :+:    :+:   */
+/*   ft_path_isportable.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/07 21:00:28 by youness           #+#    #+#             */
-/*   Updated: 2021/07/07 21:00:48 by youness          ###   ########.fr       */
+/*   Created: 2021/07/29 17:38:33 by youness           #+#    #+#             */
+/*   Updated: 2021/07/29 17:38:39 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+#include "ft_path.h"
 
-void	ft_stack_print(t_stack *stack)
+int ft_path_isportable(t_path *path)
 {
-	int	i;
+    int     ra;
+    int     rra;
+    t_path  *head;
 
-	printf("----------------------------------------------------\n");
-	i = stack->end;
-	while (i--)
-		printf("%d\n", stack->data[i]);
-	printf("----------------------------------------------------\n");
+    ra = 0;
+    rra = 0;
+    head = path;
+    while (head)
+    {
+        if (!ft_strcmp(head->str, "ra"))
+            ra++;
+        else if (!ft_strcmp(head->str, "rra"))
+            rra++;
+        head = head->next;
+    }
+    return (rra == ra);
 }

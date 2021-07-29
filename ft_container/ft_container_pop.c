@@ -14,12 +14,11 @@
 
 int	ft_container_pop(t_container *container)
 {
-	int		ret;
+	int	ret;
 
 	ret = ft_stack_pop(container->stack);
-	if (ret)
-		return (ret);
-	if (container->stack->end <= container->chunks->previous->first)
+	container->chunks->previous->second--;
+	if (container->chunks->previous->second <= container->chunks->previous->first)
 		ft_pair_removeback(&(container->chunks));
-	return (0);
+	return (ret);
 }

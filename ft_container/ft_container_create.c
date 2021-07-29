@@ -12,13 +12,14 @@
 
 #include "ft_container.h"
 
-t_container	*ft_container_create(t_stack *stack, t_pair *chunks)
+t_container	*ft_container_create(t_stack *stack, t_pair *chunks, char name)
 {
 	t_container	*container;
 
 	container = malloc(sizeof(t_container));
 	if (!container)
 		return (0);
+	container->name = name;
 	container->stack = stack;
 	container->chunks = chunks;
 	if (!chunks && stack)

@@ -12,11 +12,11 @@
 
 #include "ft_push_swap.h"
 
-t_container	*ft_initialise_container(void)
+t_container	*ft_initialise_container(char name)
 {
 	t_container	*container;
 
-	container = ft_container_create(0, 0);
+	container = ft_container_create(0, 0, name);
 	if (!container)
 		return (0);
 	container->stack = ft_stack_create();

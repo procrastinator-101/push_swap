@@ -24,6 +24,7 @@ typedef struct s_container
 {
 	t_pair	*chunks;
 	t_stack	*stack;
+	char	name;
 }			t_container;
 
 void		ft_container_print(t_container *node);
@@ -32,6 +33,6 @@ void		ft_container_del(t_container *node);
 int			ft_container_pop(t_container *container);
 int			ft_container_push(t_container *container, int value, int ischunk);
 
-t_container	*ft_container_create(t_stack *stack, t_pair *chunks);
+t_container	*ft_container_create(t_stack *stack, t_pair *chunks, char name);
 
 #endif

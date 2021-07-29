@@ -16,6 +16,9 @@ void	ft_container_print(t_container *node)
 {
 	if (!node)
 		return ;
+	printf("\n===================== CONTAINER %c ", ft_toupper(node->name));
+	printf("=====================\n");
 	ft_stack_print(node->stack);
 	ft_pair_print(node->chunks);
+	printf("\n=======================================================\n");
 }

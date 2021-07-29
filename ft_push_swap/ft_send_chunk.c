@@ -12,17 +12,16 @@
 
 #include "ft_push_swap.h"
 
-static int	ft_manage_chunksending(t_container *src, t_container *dst, char \
-			name, int middle_cost, int ischunk)
+static int	ft_manage_chunksending(t_container *src, t_container *dst, int \
+			middle_cost, int ischunk)
 {
 	int	ret;
 
-	if (name == 'a')
+	if (src->name == 'a')
 	{
 		ret = ft_repeate_instruction(src->stack, dst->stack, middle_cost, "ra");
 		if (ret)
 			return (ret);
-		//ret = ft_execute_intruction(src->stack, dst->stack, "pb");
 		ret = ft_container_push(dst, ft_container_pop(src), ischunk);
 		printf("pb\n");
 	}
@@ -31,18 +30,17 @@ static int	ft_manage_chunksending(t_container *src, t_container *dst, char \
 		ret = ft_repeate_instruction(dst->stack, src->stack, middle_cost, "rb");
 		if (ret)
 			return (ret);
-		//ret = ft_execute_intruction(dst->stack, src->stack, "pa");
 		ret = ft_container_push(src, ft_container_pop(dst), ischunk);
 		printf("pa\n");
 	}
 	return (ret);
 }
 
-static int	ft_reset_chunk(t_container *src, t_container *dst, char name, int ret)
+static int	ft_reset_chunk(t_container *src, t_container *dst, int ret)
 {
 	if (src->chunks->next)
 	{
-		if (name == 'a')
+		if (src->name == 'a')
 			ret = ft_repeate_instruction(src->stack, dst->stack, ret, "rra");
 		else
 			ret = ft_repeate_instruction(dst->stack, src->stack, ret, "rrb");
@@ -50,7 +48,7 @@ static int	ft_reset_chunk(t_container *src, t_container *dst, char name, int ret
 	return (ret);
 }
 
-int	ft_send_chunk(t_container *src, t_container *dst, char name, int median)
+int	ft_send_chunk(t_container *src, t_container *dst, int median)
 {
 	int		ret;
 	int		end;
@@ -65,11 +63,18 @@ int	ft_send_chunk(t_container *src, t_container *dst, char name, int median)
 	middle_cost = 0;
 	end = src->chunks->previous->second - 1;
 	start = src->chunks->previous->first;
+	/*
+	printf("\n------------------- enter ------------------\n");
+	printf("name = %c\n", name);
+	ft_container_print(src);
+	ft_container_print(dst);
+	printf("\n------------------- enter ------------------\n");
+	*/
 	while (end >= start)
 	{
-		if (ft_isforeign(src->stack->data[end], name, median))
+		if (ft_isforeign(src->stack->data[end], src->name, median))
 		{
-			error = ft_manage_chunksending(src, dst, name, middle_cost, ischunk);
+			error = ft_manage_chunksending(src, dst, middle_cost, ischunk);
 			if (error)
 				return (error);
 			end += middle_cost;
@@ -82,5 +87,5 @@ int	ft_send_chunk(t_container *src, t_container *dst, char name, int median)
 			middle_cost++;
 		end--;
 	}
-	return (ft_reset_chunk(src, dst, name, ret));
+	return (ft_reset_chunk(src, dst, ret));
 }

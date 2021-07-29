@@ -16,12 +16,14 @@
 # include "../ft_stack/ft_stack.h"
 # include "../libft/libft.h"
 
-# define EDUP	-1
+# define EDUP	-1          //DUPLICATE NUMBER FOUND
 # define EIOF	-2
-# define EII	-3
+# define EII	-3          //ERROR UNKNOWEN INSTRUCTION
 # define EIA	-4
-# define EMAF	-5
-# define ENAN	-6
+# define EMAF	-5          //ERROR MEMORY ALLOCATION FAILURE
+# define ENAN	-6          //ERROR NOT A NUMBER
+# define ECNF   -7          //ERROR CASE NOT FOUND
+# define EUCC   -8          //ERROR UNCHUNKABLE CONTAINER
 
 void	ft_manage_execution_error(t_stack *a, t_stack *b, int error);
 void	ft_manage_parsing_error(t_stack *stack, int error);

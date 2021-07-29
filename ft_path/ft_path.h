@@ -34,6 +34,7 @@ void				ft_path_addfront(t_path **tail, t_path *node);
 void				ft_path_addback(t_path **tail, t_path *node);
 
 int					ft_path_size(t_path *path);
+int					ft_path_isportable(t_path *path);
 int					ft_getcandidate(t_matrix *mat, int i, int j);
 
 t_path				*ft_path_create(char *str);

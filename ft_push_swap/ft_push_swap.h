@@ -48,14 +48,14 @@ int			ft_backtrack_step(t_stack *src, t_path *path, t_case *state, int depth);
 int			ft_backtrack_atomic_case(t_stack *src, t_path *path, t_case *state, \
 			int depth);
 
-t_container	*ft_initialise_container(void);
+t_container	*ft_initialise_container(char name);
 
 
 void		ft_printsolutions_intersections(t_case *cases);
 
 int			ft_isforeign(int num, char name, int median);
-int			ft_chunkate(t_container *a, t_container *b, char name);
-int			ft_send_chunk(t_container *src, t_container *dst, char name, int median);
+int			ft_chunkate(t_container *src, t_container *dst);
+int			ft_send_chunk(t_container *src, t_container *dst, int median);
 
 int			ft_repeate_instruction(t_stack *a, t_stack *b, int times, char *instruction);
 

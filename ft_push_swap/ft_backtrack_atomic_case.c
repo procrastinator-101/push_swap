@@ -44,7 +44,7 @@ int	ft_backtrack_atomic_case(t_stack *src, t_path *path, t_case *state, \
 {
 	if (depth > state->max_pathsteps)
 		return (0);
-	if (ft_stack_issorted(src, state->order))
+	if (ft_stack_issorted(src, state->order) && ft_path_isportable(path))
 		return (ft_append_path(path, state));
 	if (depth == state->max_pathsteps)
 		return (0);
