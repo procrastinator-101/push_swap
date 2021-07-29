@@ -22,7 +22,7 @@ int	ft_solve_atomic_case(t_case *node)
 	else if (node->size == 3)
 		node->max_pathsteps = 5;
 	else if (node->size == 4)
-		node->max_pathsteps = 10;
+		node->max_pathsteps = 12;
 	else
 		node->max_pathsteps = MAX_DEPTH;
 	stack = ft_arr_to_stack(node->arr, node->size);

@@ -20,22 +20,25 @@ int	ft_sort(t_container *a, t_container *b, t_case *atomics)
 
 	while (!ft_stack_issorted(a->stack, ASCENDANT) || b->stack->end)
 	{
+		/*
 		printf("\n++++++++++++++++++++++++++++ begin iter ++++++++++++++++++++++++++++++\n");
 		ft_container_print(a);
 		ft_container_print(b);
 		printf("\n++++++++++++++++++++++++++++ begin iter ++++++++++++++++++++++++++++++\n");
+		*/
 		size = a->chunks->previous->second - a->chunks->previous->first;
+		//printf("asize = %d\n", size);
 		if (size <= ATOMIC_SIZE)
 		{
 			if (b->chunks)
 			{
 				size = b->chunks->previous->second - b->chunks->previous->first;
+				//printf("bsize = %d\n", size);
 				if (size <= ATOMIC_SIZE)
 				{
-					printf("\n************* atomics **************\n");
+					//printf("\n************* atomics **************\n");
 					ft_sort_by_atomics(a, b, atomics);
-					printf("\n************* atomics **************\n");
-					printf("size = %d\n", size);
+					//printf("\n************* atomics **************\n");
 					i = -1;
 					while (++i < size)
 					{

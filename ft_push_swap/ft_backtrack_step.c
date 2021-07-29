@@ -12,43 +12,43 @@
 
 #include "ft_push_swap.h"
 
-static char	*ft_getinstruction(int index)
+static char	*ft_geteligible_intstruction(int index, int ra, int rra, int size)
 {
 	if (index == 0)
-		return ("ra");
+	{
+		if (size - ra + rra >= 2)
+			return ("sa");
+		return (0);
+	}
 	if (index == 1)
-		return ("sa");
-	return ("rra");
+	{
+		if (size - ra + rra > 0)
+			return ("ra");
+		return (0);
+	}
+	if (ra > rra)
+		return ("rra");
+	return (0);
 }
 
-static int	ft_update_path(t_path **path, int index)
+static char	*ft_getinstruction(t_path *path, int index, int size)
 {
 	int		ra;
 	int		rra;
-	char	*instruction;
 	t_path	*head;
 
-	instruction = ft_getinstruction(index);
-	if (index == 2)
+	ra = 0;
+	rra = 0;
+	head = path;
+	while (head)
 	{
-		ra = 0;
-		rra = 0;
-		head = *path;
-		while (head)
-		{
-			if (!ft_strcmp(head->str, "rra"))
-				rra++;
-			else if (!ft_strcmp(head->str, "ra"))
-				ra++;
-			head = head->next;
-		}
-		if (ra <= rra)
-			return (0);
+		if (!ft_strcmp(head->str, "rra"))
+			rra++;
+		else if (!ft_strcmp(head->str, "ra"))
+			ra++;
+		head = head->next;
 	}
-	ft_path_pushback(path, instruction);
-	if (!*path)
-		return (EMAF);
-	return (1);
+	return (ft_geteligible_intstruction(index, ra, rra, size));
 }
 
 static t_stack	*ft_prepare_stack(t_stack *src, char *instruction)
@@ -66,24 +66,36 @@ static t_stack	*ft_prepare_stack(t_stack *src, char *instruction)
 	return (0);
 }
 
+static int	ft_prepare_step(t_path **path, t_stack **tmp, t_stack *src, char *cmd)
+{
+	ft_path_pushback(path, cmd);
+	if (!*path)
+		return (EMAF);
+	*tmp = ft_prepare_stack(src, cmd);
+	if (!*tmp)
+	{
+		ft_path_clear(path);
+		return (EMAF);
+	}
+	return (0);
+}
+
 int	ft_backtrack_step(t_stack *src, t_path *path, t_case *state, int depth)
 {
 	int			i;
 	int			error;
+	char		*cmd;
 	t_stack		*tmp;
 
 	i = -1;
 	while (++i < NB_INTRUCTIONS)
 	{
-		error = ft_update_path(&path, i);
-		if (!error || error == EMAF)
+		cmd = ft_getinstruction(path, i, state->size);
+		if (!cmd)
+			continue ;
+		error = ft_prepare_step(&path, &tmp, src, cmd);
+		if (error)
 			return (error);
-		tmp = ft_prepare_stack(src, ft_getinstruction(i));
-		if (!tmp)
-		{
-			ft_path_clear(&path);
-			return (EMAF);
-		}
 		error = ft_backtrack_atomic_case(tmp, path, state, depth + 1);
 		ft_stack_clear(&tmp);
 		if (error)

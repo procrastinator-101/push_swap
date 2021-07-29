@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/29 17:38:33 by youness           #+#    #+#             */
-/*   Updated: 2021/07/29 17:38:39 by youness          ###   ########.fr       */
+/*   Created: 2021/07/29 19:51:13 by youness           #+#    #+#             */
+/*   Updated: 2021/07/29 19:51:44 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int ft_path_isportable(t_path *path)
 {
-    int     ra;
-    int     rra;
-    t_path  *head;
+	int     ra;
+	int     rra;
+	t_path  *head;
 
-    ra = 0;
-    rra = 0;
-    head = path;
-    while (head)
-    {
-        if (!ft_strcmp(head->str, "ra"))
-            ra++;
-        else if (!ft_strcmp(head->str, "rra"))
-            rra++;
-        head = head->next;
-    }
-    return (rra == ra);
+	ra = 0;
+	rra = 0;
+	head = path;
+	while (head)
+	{
+		if (!ft_strcmp(head->str, "ra"))
+			ra++;
+		else if (!ft_strcmp(head->str, "rra"))
+			rra++;
+		head = head->next;
+	}
+	return (rra == ra);
 }

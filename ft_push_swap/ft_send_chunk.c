@@ -30,7 +30,7 @@ static int	ft_manage_chunksending(t_container *src, t_container *dst, int \
 		ret = ft_repeate_instruction(dst->stack, src->stack, middle_cost, "rb");
 		if (ret)
 			return (ret);
-		ret = ft_container_push(src, ft_container_pop(dst), ischunk);
+		ret = ft_container_push(dst, ft_container_pop(src), ischunk);
 		printf("pa\n");
 	}
 	return (ret);
@@ -63,13 +63,6 @@ int	ft_send_chunk(t_container *src, t_container *dst, int median)
 	middle_cost = 0;
 	end = src->chunks->previous->second - 1;
 	start = src->chunks->previous->first;
-	/*
-	printf("\n------------------- enter ------------------\n");
-	printf("name = %c\n", name);
-	ft_container_print(src);
-	ft_container_print(dst);
-	printf("\n------------------- enter ------------------\n");
-	*/
 	while (end >= start)
 	{
 		if (ft_isforeign(src->stack->data[end], src->name, median))
