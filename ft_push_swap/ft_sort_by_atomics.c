@@ -27,7 +27,8 @@ static void	ft_update_cmd(char *cmd, char *str, int ismutant)
 	cmd[i] = 0;
 }
 
-static int	ft_execute_atomic_solution(t_container *a, t_container *b, t_solution *solution, int ismutant)
+static int	ft_execute_atomic_solution(t_container *a, t_container *b, \
+			t_solution *solution, int ismutant)
 {
 	int		ret;
 	char	cmd[4];
@@ -43,12 +44,13 @@ static int	ft_execute_atomic_solution(t_container *a, t_container *b, t_solution
 		if (ret)
 			return (ret);
 		printf("%s\n", cmd);
-		head = head->next;	
+		head = head->next;
 	}
 	return (0);
 }
 
-static t_case	*ft_getupperchunk_sequence_case(t_container *container, t_case *atomics, int order, int *error)
+static t_case	*ft_getupperchunk_sequence_case(t_container *container, \
+				t_case *atomics, int order, int *error)
 {
 	int		size;
 	int		*sequence;
@@ -58,7 +60,8 @@ static t_case	*ft_getupperchunk_sequence_case(t_container *container, t_case *at
 	*error = 0;
 	upper_chunk = container->chunks->previous;
 	size = upper_chunk->second - upper_chunk->first;
-	sequence = ft_getsequence(container->stack->data + upper_chunk->first, size);
+	sequence = ft_getsequence(container->stack->data + upper_chunk->first, \
+		size);
 	if (!sequence)
 	{
 		*error = EMAF;
@@ -72,7 +75,8 @@ static t_case	*ft_getupperchunk_sequence_case(t_container *container, t_case *at
 	return (0);
 }
 
-static int	ft_execute_right_solution(t_container *a, t_container *b, t_case *states[2])
+static int	ft_execute_right_solution(t_container *a, t_container *b, \
+			t_case *states[2])
 {
 	t_solution	*solution;
 
@@ -82,7 +86,8 @@ static int	ft_execute_right_solution(t_container *a, t_container *b, t_case *sta
 		ft_execute_atomic_solution(a, b, states[0]->solutions, 0);
 	else
 	{
-		solution = ft_solution_intersect(states[0]->solutions, states[1]->solutions);
+		solution = ft_solution_intersect(states[0]->solutions, \
+			states[1]->solutions);
 		if (!solution)
 			return (EMAF);
 		ft_execute_atomic_solution(a, b, solution, 0);
@@ -101,10 +106,11 @@ int	ft_sort_by_atomics(t_container *a, t_container *b, t_case *atomics)
 		return (error);
 	if (b->chunks)
 	{
-		states[1] = ft_getupperchunk_sequence_case(b, atomics, DESCENDANT, &error);
+		states[1] = ft_getupperchunk_sequence_case(b, atomics, DESCENDANT, \
+			&error);
 		if (error)
 			return (error);
-		return (ft_execute_right_solution(a, b, states));	
+		return (ft_execute_right_solution(a, b, states));
 	}
 	ft_execute_atomic_solution(a, b, states[0]->solutions, 0);
 	return (0);

@@ -17,6 +17,7 @@ static int	ft_manage_chunksending(t_container *src, t_container *dst, int \
 {
 	int	ret;
 
+	ret = 0;
 	if (src->name == 'a')
 	{
 		ret = ft_repeate_instruction(src->stack, dst->stack, middle_cost, "ra");
@@ -48,37 +49,44 @@ static int	ft_reset_chunk(t_container *src, t_container *dst, int ret)
 	return (ret);
 }
 
+static int	ft_send_batch(t_container *src, t_container *dst, int median, \
+			t_data *data)
+{
+	int	error;
+
+	if (ft_isforeign(src->stack->data[data->end], src->name, median))
+	{
+		error = ft_manage_chunksending(src, dst, data->middle_cost, \
+			data->ischunk);
+		if (error)
+			return (error);
+		data->end += data->middle_cost;
+		data->start += data->middle_cost;
+		data->ret += data->middle_cost;
+		data->middle_cost = 0;
+		data->ischunk = 0;
+	}
+	else
+		data->middle_cost++;
+	data->end--;
+	return (0);
+}
+
 int	ft_send_chunk(t_container *src, t_container *dst, int median)
 {
-	int		ret;
-	int		end;
-	int		start;
 	int		error;
-	int		ischunk;
-	int		middle_cost;
+	t_data	data;
 
-	ret = 0;
-	error = 0;
-	ischunk = 1;
-	middle_cost = 0;
-	end = src->chunks->previous->second - 1;
-	start = src->chunks->previous->first;
-	while (end >= start)
+	data.ret = 0;
+	data.ischunk = 1;
+	data.middle_cost = 0;
+	data.end = src->chunks->previous->second - 1;
+	data.start = src->chunks->previous->first;
+	while (data.end >= data.start)
 	{
-		if (ft_isforeign(src->stack->data[end], src->name, median))
-		{
-			error = ft_manage_chunksending(src, dst, middle_cost, ischunk);
-			if (error)
-				return (error);
-			end += middle_cost;
-			start += middle_cost;
-			ret += middle_cost;
-			middle_cost = 0;
-			ischunk = 0;
-		}
-		else
-			middle_cost++;
-		end--;
+		error = ft_send_batch(src, dst, median, &data);
+		if (error)
+			return (error);
 	}
-	return (ft_reset_chunk(src, dst, ret));
+	return (ft_reset_chunk(src, dst, data.ret));
 }

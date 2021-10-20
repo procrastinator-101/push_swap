@@ -12,47 +12,49 @@
 
 #include "ft_push_swap.h"
 
-int	ft_sort(t_container *a, t_container *b, t_case *atomics)
+static int	ft_sort_atomic_stacks(t_container *a, t_container *b, \
+			t_case *atomics)
 {
 	int	i;
 	int	ret;
 	int	size;
 
-	while (!ft_stack_issorted(a->stack, ASCENDANT) || b->stack->end)
+	if (b->chunks)
 	{
-		/*
-		printf("\n++++++++++++++++++++++++++++ begin iter ++++++++++++++++++++++++++++++\n");
-		ft_container_print(a);
-		ft_container_print(b);
-		printf("\n++++++++++++++++++++++++++++ begin iter ++++++++++++++++++++++++++++++\n");
-		*/
-		size = a->chunks->previous->second - a->chunks->previous->first;
-		//printf("asize = %d\n", size);
+		size = b->chunks->previous->second - b->chunks->previous->first;
 		if (size <= ATOMIC_SIZE)
 		{
-			if (b->chunks)
+			ft_sort_by_atomics(a, b, atomics);
+			i = -1;
+			while (++i < size)
 			{
-				size = b->chunks->previous->second - b->chunks->previous->first;
-				//printf("bsize = %d\n", size);
-				if (size <= ATOMIC_SIZE)
-				{
-					//printf("\n************* atomics **************\n");
-					ft_sort_by_atomics(a, b, atomics);
-					//printf("\n************* atomics **************\n");
-					i = -1;
-					while (++i < size)
-					{
-						ret = ft_container_push(a, ft_container_pop(b), !i);
-						if (ret)
-							return (ret);
-						printf("pa\n");
-					}
-				}
-				else
-					ft_chunkate(b, a);
+				ret = ft_container_push(a, ft_container_pop(b), !i);
+				if (ret)
+					return (ret);
+				printf("pa\n");
 			}
-			else
-				ft_sort_by_atomics(a, b, atomics);
+		}
+		else
+			ft_chunkate(b, a);
+	}
+	else
+		ft_sort_by_atomics(a, b, atomics);
+	return (0);
+}
+
+int	ft_sort(t_container *a, t_container *b, t_case *atomics)
+{
+	int	ret;
+	int	size;
+
+	while (!ft_stack_issorted(a->stack, ASCENDANT) || b->stack->end)
+	{
+		size = a->chunks->previous->second - a->chunks->previous->first;
+		if (size <= ATOMIC_SIZE)
+		{
+			ret = ft_sort_atomic_stacks(a, b, atomics);
+			if (ret)
+				return (ret);
 		}
 		else
 			ft_chunkate(a, b);

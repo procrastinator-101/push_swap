@@ -27,6 +27,15 @@
 # define ATOMIC_SIZE		4
 # define NB_INTRUCTIONS		3
 
+typedef struct s_data
+{
+	int	ret;
+	int	end;
+	int	start;
+	int	ischunk;
+	int	middle_cost;
+}		t_data;
+
 int			ft_sort(t_container *a, t_container *b, t_case *atomics);
 int			ft_sort_by_atomics(t_container *a, t_container *b, t_case *atomics);
 

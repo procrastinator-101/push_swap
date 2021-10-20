@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:42:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/10/20 13:42:44 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:15:20 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ int	main(int argc, char **argv)
 	ft_container_del(a);
 	ft_container_del(b);
 	ft_case_clear(&cases);
-	while (1);
 	return (0);
 }
