@@ -6,20 +6,15 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 23:24:19 by youness           #+#    #+#             */
-/*   Updated: 2021/05/04 23:24:19 by youness          ###   ########.fr       */
+/*   Updated: 2021/07/01 16:40:49 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int main()
+int	main(void)
 {
-	int	arr[] = {5, 8, 3, 2, 1, 7};
-	int size =  sizeof(arr) / sizeof(int);
-
-	ft_quick_sort(arr, size);
-	for (int i = 0; i < size; i++)
-		printf("%d ", arr[i]);
-	printf("\n");
+	printf("nb = %d\n", ft_atoi_base("  \t\t\v-0125000p", "0123456789"));
+	return (0);
 }

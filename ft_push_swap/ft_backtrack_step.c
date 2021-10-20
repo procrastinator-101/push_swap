@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 11:29:26 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/17 11:44:32 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/20 14:40:42 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ static t_stack	*ft_prepare_stack(t_stack *src, char *instruction)
 	return (0);
 }
 
-static int	ft_prepare_step(t_path **path, t_stack **tmp, t_stack *src, char *cmd)
+static int	ft_prepare_step(t_path **path, t_stack **tmp, t_stack *src, \
+			char *cmd)
 {
 	ft_path_pushback(path, cmd);
 	if (!*path)

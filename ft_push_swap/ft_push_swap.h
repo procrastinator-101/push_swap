@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:47:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/28 22:47:50 by youness          ###   ########.fr       */
+/*   Updated: 2021/10/20 14:44:59 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ int			ft_median(int *arr, int size, int *error);
 t_stack		*ft_arr_to_stack(int *arr, int size);
 
 int			ft_solve_atomic_case(t_case *node);
-int			ft_backtrack_step(t_stack *src, t_path *path, t_case *state, int depth);
+int			ft_backtrack_step(t_stack *src, t_path *path, t_case *state, \
+			int depth);
 int			ft_backtrack_atomic_case(t_stack *src, t_path *path, t_case *state, \
 			int depth);
 
 t_container	*ft_initialise_container(char name);
-
 
 void		ft_printsolutions_intersections(t_case *cases);
 
@@ -57,6 +57,7 @@ int			ft_isforeign(int num, char name, int median);
 int			ft_chunkate(t_container *src, t_container *dst);
 int			ft_send_chunk(t_container *src, t_container *dst, int median);
 
-int			ft_repeate_instruction(t_stack *a, t_stack *b, int times, char *instruction);
+int			ft_repeate_instruction(t_stack *a, t_stack *b, int times, \
+			char *instruction);
 
 #endif

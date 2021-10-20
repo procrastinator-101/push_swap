@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 11:21:36 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/01 16:36:44 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/05/25 14:47:53 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/05/25 15:24:12 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ctype.h"
+#include "ft_string.h"
 
-int	ft_toupper(int c)
+char	*ft_strndup(const char *str, size_t n)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	size_t	i;
+	char	*ptr;
+
+	i = 0;
+	while (i < n && str[i])
+		i++;
+	ptr = malloc((i + 1) * sizeof(char));
+	if (!ptr)
+		return (0);
+	ptr[i] = 0;
+	while (i--)
+		ptr[i] = str[i];
+	return (ptr);
 }

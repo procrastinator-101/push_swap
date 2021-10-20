@@ -5,32 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/17 17:45:04 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/01/14 12:07:34 by yarroubi         ###   ########.fr       */
+/*   Created: 2021/01/25 17:11:01 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/10/20 14:37:44 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <stdlib.h>
+# include <fcntl.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
 
-# define BUFFER_SIZE 100
+# define RET_SUCCESS	-2
+# define BUFFER_SIZE	1024
 
-int		get_next_line(int fd, char **line);
+typedef struct s_file
+{
+	int				fd;
+	int				start;
+	char			buffer[BUFFER_SIZE + 1];
+	struct s_file	*next;
+}					t_file;
 
-int		find_buffer(char ***buffers_address, int fd, int *v);
-int		resize_buffers(char ***buffers_address, int buffers_len, int fd);
-int		shift_back(char ***buffers_address, int index);
+int					get_next_line(int fd, char **line);
+void				*ft_memcpy(void *dst, const void *src, size_t n);
 
-int		sh_cut(char ***buffers_address, char **line, int *v, int option);
-int		mini_shcut(char ***buffers_address, char **line, int *v, int option);
+t_file				*ft_file_create(int fd);
+t_file				*ft_file_find(t_file *files, int fd);
 
-int		ft_ccpy(char **line, char **buffer_address, int buffer_size, int *v);
-void	ft_fast_cpy(char *dest, char *src, int size);
-
-void	start_stdin(char ***buffers_address, int *v);
-int		adjust_start(char *buffer_fd, int *v, int option);
+void				ft_file_remove(t_file **files, int fd);
+void				ft_file_addfront(t_file **files, t_file *node);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 21:04:47 by yarroubi          #+#    #+#              #
-#    Updated: 2021/05/05 22:51:42 by youness          ###   ########.fr        #
+#    Updated: 2021/05/05 14:54:32 by youness          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ SRC = ft_lstadd_back.c \
 	  ft_lstlast.c \
 	  ft_lstmap.c \
 	  ft_lstnew.c \
-	  ft_lstprint.c \
 	  ft_lstsize.c
 
 OBJ = $(SRC:.c=.o)

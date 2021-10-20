@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 10:53:12 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/28 22:28:39 by youness          ###   ########.fr       */
+/*   Updated: 2021/10/20 15:08:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # include "../ft_pair/ft_pair.h"
 # include "../ft_stack/ft_stack.h"
+# include "../ft_errors/ft_errors.h"
 
 typedef struct s_container
 {

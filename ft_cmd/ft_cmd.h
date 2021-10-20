@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 09:48:55 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/17 10:06:23 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:06:49 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,5 @@ typedef struct s_cmd
 	char	type;
 	char	target;
 }			t_cmd;
-
-
 
 #endif

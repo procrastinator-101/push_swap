@@ -5,145 +5,98 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/18 15:59:24 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/03/25 20:12:57 by youness          ###   ########.fr       */
+/*   Created: 2021/01/25 17:59:05 by yarroubi          #+#    #+#             */
+/*   Updated: 2021/08/16 15:47:56 by youness          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	adjust_start(char *buffer_fd, int *v, int option)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*str;
-	int		i;
+	char				*b_ptr;
+	char				*b_ptr2;
+	unsigned long long	*qw_ptr;
+	unsigned long long	*qw_ptr2;
 
-	if (option)
+	qw_ptr = (unsigned long long *)dst;
+	qw_ptr2 = (unsigned long long *)src;
+	while (n >= sizeof(unsigned long long))
 	{
-		str = (char *)(&(v[1]));
-		i = 1;
-		while (++i < (int)sizeof(int) + 2)
-			str[i - 2] = buffer_fd[i];
+		*qw_ptr = *qw_ptr2;
+		qw_ptr++;
+		qw_ptr2++;
+		n -= sizeof(unsigned long long);
 	}
-	else
+	b_ptr = (char *)qw_ptr;
+	b_ptr2 = (char *)qw_ptr2;
+	while (n--)
 	{
-		str = (char *)(&(v[1]));
-		i = 1;
-		while (++i < (int)sizeof(int) + 2)
-			buffer_fd[i] = (v[1] >= BUFFER_SIZE ? 0 : str[i - 2]);
+		*b_ptr = *b_ptr2;
+		b_ptr++;
+		b_ptr2++;
 	}
-	return (v[1] >= BUFFER_SIZE ? 0 : v[1]);
+	return (dst);
 }
 
-int	find_buffer(char ***buffers_address, int fd, int *v)
+void	ft_file_remove(t_file **files, int fd)
 {
-	int		i;
-	int		p;
-	char	*str;
-	char	**buffers;
+	t_file	*head;
+	t_file	*next;
+	t_file	*previous;
 
-	buffers = *buffers_address;
-	i = -1;
-	while (++i < 3)
-		v[i] = 0;
-	v[4] = fd;
-	i = 0;
-	p = 0;
-	str = (char *)(&p);
-	if (!buffers)
-		return (resize_buffers(buffers_address, 0, fd));
-	while (buffers[i])
+	head = *files;
+	previous = 0;
+	while (head)
 	{
-		str[0] = buffers[i][0];
-		str[1] = buffers[i][1];
-		v[1] = (fd == p ? adjust_start(buffers[i], v, 1) : 0);
-		if (fd == p)
-			return (i + 1);
-		i += 2;
+		next = head->next;
+		if (head->fd == fd)
+		{
+			if (head == *files)
+				*files = next;
+			free(head);
+			if (previous)
+				previous->next = next;
+			return ;
+		}
+		else
+			previous = head;
+		head = next;
 	}
-	return (resize_buffers(buffers_address, i, fd));
 }
 
-int	resize_buffers(char ***buffers_address, int buffers_len, int fd)
+t_file	*ft_file_find(t_file *files, int fd)
 {
-	char	**ptr;
-	int		i;
+	t_file	*tail;
 
-	if (!(ptr = malloc((buffers_len + 3) * sizeof(char *))))
-		return (-1);
-	i = -1;
-	ptr[buffers_len + 2] = 0;
-	ptr[buffers_len + 1] = 0;
-	while (++i < buffers_len)
-		ptr[i] = (*buffers_address)[i];
-	free(*buffers_address);
-	if (!(ptr[buffers_len] = malloc((2 + sizeof(int)) * sizeof(char))))
+	tail = files;
+	while (tail)
 	{
-		shift_back(&ptr, buffers_len);
-		return (-1);
+		if (tail->fd == fd)
+			return (tail);
+		tail = tail->next;
 	}
-	ptr[buffers_len][0] = fd;
-	ptr[buffers_len][1] = fd >> 8;
-	i = 1;
-	while (++i < (int)sizeof(int) + 2)
-		ptr[buffers_len][i] = 0;
-	*buffers_address = ptr;
-	return (buffers_len + 1);
+	return (tail);
 }
 
-int	shift_back(char ***buffers_address, int index)
+void	ft_file_addfront(t_file **files, t_file *node)
 {
-	char	**ptr;
-	int		size;
-
-	size = 0;
-	while ((*buffers_address)[size])
-		size += 2;
-	size++;
-	free((*buffers_address)[index]);
-	free((*buffers_address)[index + 1]);
-	if (size <= 3)
+	if (node)
 	{
-		free(*buffers_address);
-		*buffers_address = NULL;
-		return (1);
+		node->next = *files;
+		*files = node;
 	}
-	while (index++ < size - 2)
-		(*buffers_address)[index - 1] = (*buffers_address)[index + 1];
-	if (!(ptr = malloc((size - 2) * sizeof(char *))))
-		return (-1);
-	index = -1;
-	while (++index < size - 2)
-		ptr[index] = (*buffers_address)[index];
-	free(*buffers_address);
-	*buffers_address = ptr;
-	return (1);
 }
 
-int	ft_ccpy(char **line, char **buffer_address, int buffer_size, int *v)
+t_file	*ft_file_create(int fd)
 {
-	int		i;
-	int		j;
-	char	*ptr;
-	char	*buffer;
+	t_file	*file;
 
-	buffer = *buffer_address;
-	i = v[1];
-	while (i < buffer_size && buffer[i] && buffer[i] != '\n')
-		i++;
-	i += (buffer[i] == '\n');
-	if (!(ptr = malloc((v[0] + i - v[1] + (v[0] == 0)\
-						* sizeof(char)))))
-		return (-1);
-	ft_fast_cpy(ptr, *line, v[0]);
-	free(*line);
-	ft_fast_cpy(ptr + v[0] - (v[0] > 0), buffer + v[1], i - v[1]);
-	ptr[i - v[1] + v[0] - (v[0] > 0)] = 0;
-	*line = ptr;
-	j = v[1];
-	v[1] = i;
-	if (i >= buffer_size)
-		free(*buffer_address);
-	if (i >= buffer_size)
-		*buffer_address = 0;
-	return (i - j + v[0] + (v[0] == 0));
+	file = malloc(sizeof(t_file));
+	if (!file)
+		return (0);
+	file->fd = fd;
+	file->start = 0;
+	file->next = 0;
+	return (file);
 }

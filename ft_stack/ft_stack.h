@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 15:36:57 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/07 21:05:03 by youness          ###   ########.fr       */
+/*   Updated: 2021/10/20 15:00:00 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 # include "../libft/libft.h"
 
-# define ASCENDANT			0				//the top of the stack is the smallest
-# define DESCENDANT			1				//the top of the stack is the largest
+# define ASCENDANT			0			//the top of the stack is the smallest
+# define DESCENDANT			1			//the top of the stack is the largest
 # define MIN_STACK_SIZE		100
 
 typedef struct s_stack

@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:11:35 by youness           #+#    #+#             */
-/*   Updated: 2021/07/29 20:59:55 by youness          ###   ########.fr       */
+/*   Updated: 2021/10/20 15:05:48 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ void	parser(int fd, t_stack *a, t_stack *b)
 	{
 		ret = get_next_line(fd, &line);
 		if (ret > 0)
-		{
 			error = ft_execute_intruction(a, b, line);
-			//ft_verbose(a, b, 0);
-		}
 		free(line);
 		if (error)
 		{

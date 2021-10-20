@@ -6,7 +6,7 @@
 #    By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 21:04:47 by yarroubi          #+#    #+#              #
-#    Updated: 2021/05/05 22:59:24 by youness          ###   ########.fr        #
+#    Updated: 2021/06/04 15:56:13 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ FT_LST_SRC = $(FT_LST_PATH)/ft_lstadd_back.c \
 			 $(FT_LST_PATH)/ft_lstlast.c \
 			 $(FT_LST_PATH)/ft_lstmap.c \
 			 $(FT_LST_PATH)/ft_lstnew.c \
-			 $(FT_LST_PATH)/ft_lstprint.c \
 			 $(FT_LST_PATH)/ft_lstsize.c
 
 FT_MATH_SRC = $(FT_MATH_PATH)/ft_dmax.c \
@@ -64,10 +63,10 @@ FT_CTYPE_SRC = $(FT_CTYPE_PATH)/ft_isalnum.c \
 FT_STDIO_SRC = $(FT_STDIO_PATH)/ft_putchar_fd.c \
 			   $(FT_STDIO_PATH)/ft_putendl_fd.c \
 			   $(FT_STDIO_PATH)/ft_putnbr_fd.c \
-			   $(FT_STDIO_PATH)/ft_putstr.c \
 			   $(FT_STDIO_PATH)/ft_putstr_fd.c
 
 FT_STDLIB_SRC = $(FT_STDLIB_PATH)/ft_atoi.c \
+				$(FT_STDLIB_PATH)/ft_atoi_base.c \
 				$(FT_STDLIB_PATH)/ft_calloc.c \
 				$(FT_STDLIB_PATH)/ft_iswap.c \
 				$(FT_STDLIB_PATH)/ft_itoa.c
@@ -79,7 +78,6 @@ FT_STRING_SRC = $(FT_STRING_PATH)/ft_bzero.c \
 				$(FT_STRING_PATH)/ft_memcpy.c \
 				$(FT_STRING_PATH)/ft_memmove.c \
 				$(FT_STRING_PATH)/ft_memset.c \
-				$(FT_STRING_PATH)/ft_split.c \
 				$(FT_STRING_PATH)/ft_strchr.c \
 				$(FT_STRING_PATH)/ft_strcmp.c \
 				$(FT_STRING_PATH)/ft_strdup.c \
@@ -89,10 +87,10 @@ FT_STRING_SRC = $(FT_STRING_PATH)/ft_bzero.c \
 				$(FT_STRING_PATH)/ft_strlen.c \
 				$(FT_STRING_PATH)/ft_strmapi.c \
 				$(FT_STRING_PATH)/ft_strncmp.c \
+				$(FT_STRING_PATH)/ft_strndup.c \
 				$(FT_STRING_PATH)/ft_strnstr.c \
 				$(FT_STRING_PATH)/ft_strrchr.c \
 				$(FT_STRING_PATH)/ft_strrstr.c \
-				$(FT_STRING_PATH)/ft_strtrim.c \
 				$(FT_STRING_PATH)/ft_substr.c
 
 FT_ALGORITHMS_SRC = $(FT_ALGORITHMS_PATH)/ft_quick_sort.c

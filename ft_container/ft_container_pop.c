@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 10:18:23 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/28 22:30:00 by youness          ###   ########.fr       */
+/*   Updated: 2021/10/20 14:46:39 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	ft_container_pop(t_container *container)
 
 	ret = ft_stack_pop(container->stack);
 	container->chunks->previous->second--;
-	if (container->chunks->previous->second <= container->chunks->previous->first)
+	if (container->chunks->previous->second <= \
+		container->chunks->previous->first)
 		ft_pair_removeback(&(container->chunks));
 	return (ret);
 }

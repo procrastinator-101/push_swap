@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 10:06:57 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/28 22:49:53 by youness          ###   ########.fr       */
+/*   Updated: 2021/10/20 14:48:42 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	ft_container_push(t_container *container, int value, int ischunk)
 	else
 		container->chunks->previous->second = container->stack->end;
 	if (!container->chunks)
-		return (1);//EMAF
+		return (EMAF);
 	return (0);
 }

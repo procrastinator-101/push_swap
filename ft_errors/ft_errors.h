@@ -6,12 +6,12 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:06:10 by youness           #+#    #+#             */
-/*   Updated: 2021/06/23 15:07:46 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:00:49 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERRORS_H
-# define ERRORS_H
+#ifndef FT_ERRORS_H
+# define FT_ERRORS_H
 
 # include "../ft_stack/ft_stack.h"
 # include "../libft/libft.h"
