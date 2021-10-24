@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 21:01:28 by youness           #+#    #+#             */
-/*   Updated: 2021/07/07 21:01:47 by youness          ###   ########.fr       */
+/*   Updated: 2021/10/24 17:52:48 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_stack_issorted(t_stack *stack, int order)
 	{
 		while (++i < stack->end - 1)
 		{
-			if (stack->data[i] >= stack->data[i + 1])
+			if (stack->data[i] > stack->data[i + 1])
 				return (0);
 		}
 	}
@@ -29,7 +29,7 @@ int	ft_stack_issorted(t_stack *stack, int order)
 	{
 		while (++i < stack->end - 1)
 		{
-			if (stack->data[i] <= stack->data[i + 1])
+			if (stack->data[i] < stack->data[i + 1])
 				return (0);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:22:00 by youness           #+#    #+#             */
-/*   Updated: 2021/07/15 13:45:29 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/24 19:07:16 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ int	ft_execute_intruction(t_stack *a, t_stack *b, char *instruction)
 	}
 	else if (!ft_strcmp(instruction, "pa"))
 	{
-		if (b->size)
+		if (b->end)
 			return (ft_stack_push(a, ft_stack_pop(b)));
 	}
 	else if (!ft_strcmp(instruction, "pb"))
 	{
-		if (a->size)
+		if (a->end)
 			return (ft_stack_push(b, ft_stack_pop(a)));
 	}
 	else

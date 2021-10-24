@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 20:43:37 by youness           #+#    #+#             */
-/*   Updated: 2021/07/15 15:45:50 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/24 17:34:48 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	ft_stack_push(t_stack *stack, int value)
 
 	if (stack->end >= stack->size)
 	{
-		stack->size *= 2;
+		if (stack->size)
+			stack->size *= 2;
+		else
+			stack->size = MIN_STACK_SIZE;
 		ptr = malloc(stack->size * sizeof(int));
 		if (!ptr)
 		{
