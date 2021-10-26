@@ -1,4 +1,4 @@
-ft_stack :
+ft_stack : done
 	-	ft_stack_create.c
 	-	ft_stack_clear.c
 	-	ft_stack_push.c
@@ -11,22 +11,22 @@ ft_stack :
 	-	ft_stack_rotate.c
 	-	ft_stack_swap.c
 
-ft_errors :
+ft_errors : done
 	-	ft_manage_execution_error.c
 	-	ft_manage_parsing_error.c
 	-	ft_print_error_msg.c
 
-ft_support_functions :
+ft_support_functions : done
 	-	ft_atoi_check_len.c
 	-	ft_verbose.c
 	-	ft_parse_arguments.c
 	-	ft_execute_intruction.c
 
-ft_checker :
+ft_checker : done
 	-	parser.c
 	-	checker.c
 
-ft_path :
+ft_path : done
 	-	ft_path_del.c
 	-	ft_path_clone.c
 	-	ft_path_clear.c
@@ -38,14 +38,17 @@ ft_path :
 	-	ft_path_pushback.c
 	-	ft_path_removeback.c
 	-	ft_path_isportable.c
+	-	ft_path_getintersection_matrix.c
+	-	ft_getcandidate.c
+	-	ft_path_intersect.c
 
-ft_matrix :
+ft_matrix : done	
 	-	ft_matrix_nclear.c
 	-	ft_matrix_create.c
 	-	ft_matrix_clear.c
 	-	ft_matrix_print.c
 
-ft_pair :
+ft_pair : done
 	-	ft_pair_del.c
 	-	ft_pair_clear.c
 	-	ft_pair_print.c
@@ -53,3 +56,10 @@ ft_pair :
 	-	ft_pair_removeback.c
 	-	ft_pair_pushback.c
 	-	ft_pair_create.c
+
+ft_container : done
+	-	ft_container_create.c
+	-	ft_container_del.c
+	-	ft_container_pop.c
+	-	ft_container_push.c
+	-	ft_container_print.c
