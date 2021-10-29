@@ -6,14 +6,14 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 11:33:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/28 22:56:15 by youness          ###   ########.fr       */
+/*   Updated: 2021/10/29 19:33:06 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-static int	ft_manage_chunksending(t_container *src, t_container *dst, int \
-			middle_cost, int ischunk)
+static int	ft_manage_chunksending(t_container *src, t_container *dst, \
+			int middle_cost, int ischunk)
 {
 	int	ret;
 
