@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:47:06 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/10/20 14:44:59 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/29 12:13:39 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ int			ft_send_chunk(t_container *src, t_container *dst, int median);
 
 int			ft_repeate_instruction(t_stack *a, t_stack *b, int times, \
 			char *instruction);
+
+void		ft_manage_parsing_error(t_stack *stack, int error);
+void		ft_manage_execution_error(t_container *a, t_container *b, int error);
 
 #endif

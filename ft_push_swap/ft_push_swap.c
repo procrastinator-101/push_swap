@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:42:51 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/10/20 15:15:20 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/29 12:28:42 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,35 @@
 
 int	main(int argc, char **argv)
 {
+	int			error;
+	t_stack		*stack;
 	t_case		*cases;
 	t_container	*a;
 	t_container	*b;
 
-	a = ft_initialise_container('a');
+	if (argc < 2)
+		return (0);
+	stack = ft_stack_create();
+	if (!stack)
+		ft_manage_parsing_error(stack, EMAF);
+	ft_parse_arguments(stack, 1, argc, argv);
+	a = ft_container_create(stack, 0, 'a');
 	if (!a)
-		ft_manage_execution_error(0, 0, EMAF);//to update
+		ft_manage_parsing_error(stack, EMAF);
 	b = ft_initialise_container('b');
 	if (!b)
-	{
-		ft_container_del(a);
-		ft_manage_execution_error(0, 0, EMAF);//to update
-	}
-	ft_parse_arguments(a->stack, 1, argc, argv);//check errors
-	a->chunks = ft_pair_create(0, a->stack->end);//to protect
+		ft_manage_execution_error(a, b, EMAF);
 	cases = ft_initialise_cases();
 	if (!cases)
-		ft_manage_execution_error(0, 0, EMAF);//to update
+		ft_manage_execution_error(a, b, EMAF);
 	cases = ft_getatomic_solutions(cases);
-	ft_sort(a, b, cases);
+	if (!cases)
+		ft_manage_execution_error(a, b, EMAF);
+	error = ft_sort(a, b, cases);
 	ft_container_del(a);
 	ft_container_del(b);
 	ft_case_clear(&cases);
+	if (error)
+		ft_manage_execution_error(0, 0, error);
 	return (0);
 }

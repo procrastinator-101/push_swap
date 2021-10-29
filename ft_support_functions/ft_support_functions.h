@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 17:47:24 by youness           #+#    #+#             */
-/*   Updated: 2021/07/15 13:44:39 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/29 19:04:54 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <limits.h>
 # include "../libft/libft.h"
+# include "../ft_stack/ft_stack.h"
 # include "../ft_errors/ft_errors.h"
 
 int		ft_atoi_check_len(char *str, int *error, int *len);

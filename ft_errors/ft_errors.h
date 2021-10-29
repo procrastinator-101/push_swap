@@ -6,15 +6,15 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:06:10 by youness           #+#    #+#             */
-/*   Updated: 2021/10/24 18:38:48 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/29 12:24:34 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ERRORS_H
 # define FT_ERRORS_H
 
-# include "../ft_stack/ft_stack.h"
 # include "../libft/libft.h"
+#include "../ft_stack/ft_stack.h"
 
 # define EDUP	-1			//DUPLICATE NUMBER FOUND
 # define EIOF	-2			//INTEGER OVERFLOW
@@ -28,6 +28,5 @@
 
 void	ft_print_error_msg(int error);
 void	ft_manage_parsing_error(t_stack *stack, int error);
-void	ft_manage_execution_error(t_stack *a, t_stack *b, int error);
 
 #endif

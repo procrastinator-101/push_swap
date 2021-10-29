@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/10/24 18:40:15 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/10/29 18:53:13 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,6 +129,7 @@ FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_initialise_cases.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_initialise_container.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_isforeign.c \
+				   $(FT_PUSH_SWAP_PATH)/ft_manage_execution_error.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_median.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_printsolutions_intersections.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_push_swap.c \
@@ -138,8 +139,7 @@ FT_PUSH_SWAP_SRC = $(FT_PUSH_SWAP_PATH)/ft_append_permutation.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_sort_by_atomics.c \
 				   $(FT_PUSH_SWAP_PATH)/ft_sort.c
 
-FT_ERRORS_SRC = $(FT_ERRORS_PATH)/ft_manage_execution_error.c \
-				$(FT_ERRORS_PATH)/ft_manage_parsing_error.c \
+FT_ERRORS_SRC = $(FT_ERRORS_PATH)/ft_manage_parsing_error.c \
 				$(FT_ERRORS_PATH)/ft_print_error_msg.c
 
 CHECKER_SRC = $(FT_CHECKER_SRC) $(FT_SUPPORT_FUNCTIONS_SRC) $(FT_STACK_SRC) \
