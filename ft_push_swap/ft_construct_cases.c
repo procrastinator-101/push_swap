@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 18:51:18 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/14 18:36:31 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/10/31 19:54:19 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,12 @@ t_case	*ft_construct_cases(t_list *permutations, int size)
 	while (head)
 	{
 		tmp = ft_create_paircases(head->content, size);
+		head->content = 0;
 		if (!tmp)
 		{
 			ft_case_clear(&cases);
-			ft_lstclear(&head, free);
 			break ;
 		}
-		head->content = 0;
 		ft_case_addback(&cases, tmp);
 		head = head->next;
 	}
