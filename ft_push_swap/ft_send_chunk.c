@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 11:33:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/11/04 16:22:01 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/11/04 18:12:38 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ static int	ft_reset_chunk(t_container *src, t_container *dst, int ret)
 	if (src->chunks && src->chunks->next)
 	{
 		if (src->name == 'a')
-			ret = ft_repeate_instruction(src->stack, dst->stack, ret, "rra");
+			return (ft_repeate_instruction(src->stack, dst->stack, ret, "rra"));
 		else
-			ret = ft_repeate_instruction(dst->stack, src->stack, ret, "rrb");
+			return (ft_repeate_instruction(dst->stack, src->stack, ret, "rrb"));
 	}
-	return (ret);
+	return (0);
 }
 
 static int	ft_send_batch(t_container *src, t_container *dst, int median, \
