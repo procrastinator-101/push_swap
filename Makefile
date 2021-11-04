@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/11/04 16:59:35 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/11/04 17:19:12 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -211,7 +211,9 @@ bonus_clean:
 	@$(MAKE) -C libft fclean
 
 
-bonus_fclean: clean
-	@rm -rf $(NAME)
+bonus_fclean: bonus_clean
+	@rm -rf $(PUSH_SWAP) $(CHECKER)
 
-re_bonus: fclean bonus
+bonus_re: bonus_fclean bonus
+
+.PHONY: clean fclean re bonus bonus_clean bonus_fclean bonus_re
