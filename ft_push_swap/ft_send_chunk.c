@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 11:33:45 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/10/29 19:33:06 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/11/04 16:22:01 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	ft_manage_chunksending(t_container *src, t_container *dst, \
 
 static int	ft_reset_chunk(t_container *src, t_container *dst, int ret)
 {
-	if (src->chunks->next)
+	if (src->chunks && src->chunks->next)
 	{
 		if (src->name == 'a')
 			ret = ft_repeate_instruction(src->stack, dst->stack, ret, "rra");

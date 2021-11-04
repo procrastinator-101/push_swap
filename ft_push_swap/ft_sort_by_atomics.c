@@ -6,7 +6,7 @@
 /*   By: yarroubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/17 12:30:22 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/07/28 23:08:20 by youness          ###   ########.fr       */
+/*   Updated: 2021/11/04 15:53:02 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,22 +78,24 @@ static t_case	*ft_getupperchunk_sequence_case(t_container *container, \
 static int	ft_execute_right_solution(t_container *a, t_container *b, \
 			t_case *states[2])
 {
+	int			ret;
 	t_solution	*solution;
 
+	ret = 0;
 	if (!states[0]->solutions)
-		ft_execute_atomic_solution(a, b, states[1]->solutions, 1);
+		ret = ft_execute_atomic_solution(a, b, states[1]->solutions, 1);
 	else if (!states[1]->solutions)
-		ft_execute_atomic_solution(a, b, states[0]->solutions, 0);
+		ret = ft_execute_atomic_solution(a, b, states[0]->solutions, 0);
 	else
 	{
 		solution = ft_solution_intersect(states[0]->solutions, \
 			states[1]->solutions);
 		if (!solution)
 			return (EMAF);
-		ft_execute_atomic_solution(a, b, solution, 0);
+		ret = ft_execute_atomic_solution(a, b, solution, 0);
 		ft_solution_del(solution);
 	}
-	return (0);
+	return (ret);
 }
 
 int	ft_sort_by_atomics(t_container *a, t_container *b, t_case *atomics)
@@ -112,6 +114,5 @@ int	ft_sort_by_atomics(t_container *a, t_container *b, t_case *atomics)
 			return (error);
 		return (ft_execute_right_solution(a, b, states));
 	}
-	ft_execute_atomic_solution(a, b, states[0]->solutions, 0);
-	return (0);
+	return (ft_execute_atomic_solution(a, b, states[0]->solutions, 0));
 }

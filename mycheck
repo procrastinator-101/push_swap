@@ -104,5 +104,15 @@ ft_push_swap :
 	-	ft_solve_atomic_case.c
 	-	ft_backtrack_atomic_case.c	
 	-	ft_backtrack_step.c
+	-	ft_sort_by_atomics.c
+	-	ft_chunkate.c
+	-	ft_repeate_instruction.c
+	-	ft_send_chunk.c
+	-	ft_sort.c
+	-	ft_manage_execution_error.c
+	-	ft_push_swap.c
+	-	ft_push_swap.h
+	-	ft_printsolutions_intersections.c
+
 
 Makefile :

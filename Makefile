@@ -6,7 +6,7 @@
 #    By: youness <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 19:52:46 by youness           #+#    #+#              #
-#    Updated: 2021/10/29 19:33:57 by yarroubi         ###   ########.fr        #
+#    Updated: 2021/11/04 16:59:35 by yarroubi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,12 @@ CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
 CHECKER = checker
 PUSH_SWAP = push_swap
 
+
+ifdef BONUS
 NAME = $(PUSH_SWAP) $(CHECKER)
+else
+NAME = $(PUSH_SWAP)
+endif
 
 LIBFT_PATH = libft
 FT_PATH_PATH = ft_path
@@ -151,6 +156,24 @@ PUSH_SWAP_SRC = $(FT_PUSH_SWAP_SRC) $(FT_SUPPORT_FUNCTIONS_SRC) \
 				$(FT_CASE_SRC) $(FT_SOLUTION_SRC) $(FT_PATH_SRC) \
 				$(FT_MATRIX_SRC) $(FT_ERRORS_SRC)
 
+PUSH_SWAP_HDR = ft_case/ft_case.h \
+				ft_container/ft_container.h \
+				ft_errors/ft_errors.h \
+				ft_matrix/ft_matrix.h \
+				ft_pair/ft_pair.h \
+				ft_path/ft_path.h \
+				ft_push_swap/ft_push_swap.h \
+				ft_solution/ft_solution.h \
+				ft_stack/ft_stack.h \
+				ft_support_functions/ft_support_functions.h \
+				libft/libft.h
+
+CHECKER_HDR = ft_errors/ft_errors.h \
+			  ft_stack/ft_stack.h \
+			  ft_support_functions/ft_support_functions.h \
+			  get_next_line/get_next_line.h \
+			  libft/libft.h
+
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 PUSH_SWAP_OBJ = $(PUSH_SWAP_SRC:.c=.o)
 
@@ -170,7 +193,7 @@ $(LIBFT) :
 	@$(MAKE) -C libft
 
 clean:
-	@rm -rf $(PUSH_SWAP_OBJ) $(CHECKER_OBJ)
+	@rm -rf $(PUSH_SWAP_OBJ)
 	@$(MAKE) -C libft fclean
 
 
@@ -178,3 +201,17 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
+
+
+bonus:
+	@$(MAKE) BONUS=1
+
+bonus_clean:
+	@rm -rf $(PUSH_SWAP_OBJ) $(CHECKER_OBJ)
+	@$(MAKE) -C libft fclean
+
+
+bonus_fclean: clean
+	@rm -rf $(NAME)
+
+re_bonus: fclean bonus
