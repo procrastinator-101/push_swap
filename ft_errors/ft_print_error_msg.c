@@ -6,7 +6,7 @@
 /*   By: yarroubi <yarroubi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 18:34:31 by yarroubi          #+#    #+#             */
-/*   Updated: 2021/10/24 18:36:51 by yarroubi         ###   ########.fr       */
+/*   Updated: 2021/11/05 12:11:39 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_print_error_msg(int error)
 {
-	ft_putstr_fd("error\n", 2);
+	ft_putstr_fd("Error\n", 2);
 	if (error == EDUP)
 		ft_putstr_fd("duplicates detected\n", 2);
 	else if (error == EIOF)
@@ -22,7 +22,7 @@ void	ft_print_error_msg(int error)
 	else if (error == EII)
 		ft_putstr_fd("invalid instruction detected\n", 2);
 	else if (error == EIA)
-		ft_putstr_fd("a invalid argument detected\n", 2);
+		ft_putstr_fd("invalid argument detected\n", 2);
 	else if (error == EMAF)
 		ft_putstr_fd("memory allocation failure\n", 2);
 	else if (error == ENAN)

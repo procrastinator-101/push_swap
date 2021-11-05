@@ -6,7 +6,7 @@
 /*   By: youness <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 17:54:42 by youness           #+#    #+#             */
-/*   Updated: 2021/07/07 21:29:21 by youness          ###   ########.fr       */
+/*   Updated: 2021/11/05 12:10:32 by yarroubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ft_parse_arguments(t_stack *stack, int argb, int argc, char **argv)
 	while (++i < argc)
 	{
 		start = 0;
+		if (!argv[i][start])
+			ft_manage_parsing_error(stack, EIA);
 		while (argv[i][start])
 		{
 			num = ft_atoi_check_len(argv[i] + start, &error, &len);
